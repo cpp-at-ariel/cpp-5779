@@ -1,0 +1,4 @@
+#!/bin/bash
+clang++-5.0 -std=c++17 factorial_test.cpp factorial.cpp
+./a.out
+rm a.out

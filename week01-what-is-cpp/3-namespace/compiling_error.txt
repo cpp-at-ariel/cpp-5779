@@ -1,0 +1,10 @@
+/home/erelsgl/Dropbox/ariel/cpp-5779/week01a-intro/3-namespace/namespace.cpp:18:2: error: call to 'printx' is ambiguous
+        printx();
+        ^~~~~~
+/home/erelsgl/Dropbox/ariel/cpp-5779/week01a-intro/3-namespace/namespace.cpp:5:7: note: candidate function
+        void printx() { std::cout << x << std::endl; }
+             ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/week01a-intro/3-namespace/namespace.cpp:10:7: note: candidate function
+        void printx() { std::cout << x << std::endl; }
+             ^
+1 error generated.
