@@ -10,10 +10,8 @@
 #include <string>
 using namespace std;
 
-// Throw an object:
+// Throw a custom object:
 class argument_must_be_positive {};
-
-// Throw an object:
 double safesqrt2(double x) {
 	if (x<0)
 		throw argument_must_be_positive{};
@@ -28,9 +26,6 @@ int main() {
 		cout << "safesqrt2(4) = " << safesqrt2(4) << endl;
 		cout << "safesqrt2(-4) = " << safesqrt2(-4) << endl;
 	}
-	//catch (argument_must_be_positive x) {
-	// 	cout << "   caught exception " << typeid(x).name() << endl;
-	//}
 	catch (...) {
 		auto exception = std::current_exception();
 	 	cout << "   caught exception of type " << exception.__cxa_exception_type()->name() << endl;
