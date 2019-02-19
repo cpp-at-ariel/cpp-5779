@@ -38,5 +38,8 @@ int main() {
     // Segmentation fault:
     int* nullnumptr = nullptr;
     int& nullnumref = *nullnumptr;
-    cout << nullnumptr << endl << &nullnumref << endl << (*nullnumptr) << endl << nullnumref << endl; // segmentation fault
+    cout << "nullnumptr = " << nullnumptr << endl;
+    cout << "&nullnumref = " << &nullnumref << endl;
+    cout << "(*nullnumptr) = " << (*nullnumptr) << endl;
+    cout << "nullnumref" << nullnumref << endl; // segmentation fault
 }

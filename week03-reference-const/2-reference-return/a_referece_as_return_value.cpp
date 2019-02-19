@@ -31,8 +31,8 @@ int& g4() {
 int main() {
     int num1 = g1();
     int num2 = g2();
-	cout << "num1 = " << num1 << endl;
-	cout << "num2 = " << num2 << endl;
+    cout << "num1 = " << num1 << endl;
+    cout << "num2 = " << num2 << endl;
 
     //int& rnum1 = g1();  // compilation error
     int& rnum2 = g2();    // OK
@@ -54,6 +54,6 @@ int main() {
     //g3() = 33; // compilation error
 
     cout << "g4() = " << g4() << endl;
-	g4() = 14;
+    g4() = 14;
     cout << "g4() = " << g4() << endl;
 }

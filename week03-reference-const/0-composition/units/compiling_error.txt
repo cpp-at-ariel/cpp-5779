@@ -1,0 +1,11 @@
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+/tmp/Line-1a054a.o: In function `Line::set(int, int, int, int)':
+/home/erelsgl/Dropbox/ariel/cpp-5779/week03-reference-const/0-composition/units/Line.cpp:(.text+0xa5): undefined reference to `Point::setX(int)'
+/home/erelsgl/Dropbox/ariel/cpp-5779/week03-reference-const/0-composition/units/Line.cpp:(.text+0xb1): undefined reference to `Point::setY(int)'
+/home/erelsgl/Dropbox/ariel/cpp-5779/week03-reference-const/0-composition/units/Line.cpp:(.text+0xc1): undefined reference to `Point::setX(int)'
+/home/erelsgl/Dropbox/ariel/cpp-5779/week03-reference-const/0-composition/units/Line.cpp:(.text+0xd1): undefined reference to `Point::setY(int)'
+/tmp/Line-1a054a.o: In function `Line::to_string[abi:cxx11]()':
+/home/erelsgl/Dropbox/ariel/cpp-5779/week03-reference-const/0-composition/units/Line.cpp:(.text+0x14a): undefined reference to `Point::to_string[abi:cxx11]()'
+/home/erelsgl/Dropbox/ariel/cpp-5779/week03-reference-const/0-composition/units/Line.cpp:(.text+0x199): undefined reference to `Point::to_string[abi:cxx11]()'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)

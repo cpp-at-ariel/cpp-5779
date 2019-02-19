@@ -39,11 +39,11 @@ public:
 int main() {
     Complex a;
     a.real() = 5;
-    cout << a.real() << endl;
+    cout << "a.real = " << a.real() << endl;
 
     const Complex c;
     //c.real() = 5;
-    cout << c.real() << endl;
+    cout << "c.real = " << c.real() << endl;
 
     return 0;
 }

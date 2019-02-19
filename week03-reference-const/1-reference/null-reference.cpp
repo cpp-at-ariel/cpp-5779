@@ -13,5 +13,6 @@ int main() {
 	int i=6;
 	test(i);
 	int* j=nullptr;
-	test(*j);
+	test(*j);  // This is considered undefined behavior!
+	           // But on my computer, it works and prints NULL.
 }

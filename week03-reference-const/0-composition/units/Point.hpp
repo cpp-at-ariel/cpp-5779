@@ -1,7 +1,8 @@
-//#pragma once
+#pragma once
 
-#ifndef __POINT_HPP
-#define __POINT_HPP
+// Before the invention of "pragma once", this is what people used to do:
+// #ifndef __POINT_HPP
+// #define __POINT_HPP
 
 #include <string>
 using namespace std;
@@ -23,4 +24,4 @@ class Point {
     //Point(int xx, int yy)  {this->x=xx; this->y=yy;}
 };
 
-#endif
+// #endif
