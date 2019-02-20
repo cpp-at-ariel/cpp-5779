@@ -32,5 +32,5 @@ int main() {
   .CHECK_OK   (threetree.print())
   .print();
   
-  cout << "Your grade is " << tc.grade() << ". Great!";
+  cout << "You have " << tc.right() << " right answers and " << tc.wrong() << " wrong answers so your grade is " << tc.grade() << ". Great!";
 }
