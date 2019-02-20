@@ -62,21 +62,22 @@ class TestCase {
 			return true;
 		}
 	}
-	
-	int total() const { 
-		return failed+passed; }
-	
 
 public:
+  int right() const { return this->passed; }
+  int wrong() const { return this->failed; }
+  int total() const { return failed+passed; }
+  int grade() const { return (total()==0? 0: 100*passed/total()); }
+  
 	ostream& print(ostream& out) const {
-		int grade = (total()==0? 0: 100*passed/total());
-		return (out << "\n*** Right: " << passed << ". Wrong: " << failed << ". Grade: " << grade << " ***\n");
+		return (out << "\n*** Right: " << passed << ". Wrong: " << failed << ". Grade: " << grade() << " ***\n");
 	}
+  
 	TestCase& print()  {
 		print(this->output);
-		// this->output << endl << "---" << endl;
 		return *this;
 	}
+ 
 	TestCase(const string& name, ostream& output=cerr): 
 		name(name), 
 		output(output),
