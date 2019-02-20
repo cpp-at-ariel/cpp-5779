@@ -11,8 +11,8 @@ using std::cout, std::endl;
 #include "Tree.h"
 
 int main() {
-  Tree emptytree;
-  Tree threetree;  
+  ariel::Tree emptytree;
+  ariel::Tree threetree;  
   threetree.insert(5).insert(3).insert(7);
   
   badkan::TestCase tc("Binary tree");
@@ -34,5 +34,5 @@ int main() {
   
   .print();
   
-  cout << "You have " << tc.right() << " right answers and " << tc.wrong() << " wrong answers so your grade is " << tc.grade() << ". Great!";
+  cout << "You have " << tc.right() << " right answers and " << tc.wrong() << " wrong answers so your grade is " << tc.grade() << ". Great!" << endl;
 }
