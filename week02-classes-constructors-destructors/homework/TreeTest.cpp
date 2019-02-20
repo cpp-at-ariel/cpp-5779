@@ -15,7 +15,7 @@ int main() {
   Tree threetree;  
   threetree.insert(5).insert(3).insert(7);
   
-  TestCase tc("Binary tree");
+  badkan::TestCase tc("Binary tree");
   tc
   .CHECK_EQUAL(emptytree.size(), 0)
   .CHECK_OK   (emptytree.insert(5))

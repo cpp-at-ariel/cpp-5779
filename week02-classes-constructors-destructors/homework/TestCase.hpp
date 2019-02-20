@@ -4,7 +4,7 @@
  *
  * Use the macros CHECK_EQUAL and CHECK_OK for testing, e.g.:
  
-   TestCase ("title")
+   badkan::TestCase ("title")
    .CHECK_OK(do_something())
    .CHECK_EQUAL(sum(1,2), 3)
    .CHECK_EQUAL(factorial(5), 120)
@@ -22,18 +22,87 @@
 #define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected)
 #define CHECK_OK(actual) check_ok([&](){actual;})
 
-
 #include <string>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <ctime>
+#include <csignal>
+#include <csetjmp>
 using std::string, std::ostream, std::endl, std::cerr, std::exception;
 
-class TestCase {
-  string name;        // Name of test-case - for showing in error messages
-  int passed, failed; // Number of tests passed/failed so far.
-  ostream& output;    // Stream to which the error messages will be sent.
 
+namespace badkan {
+
+/* The following code is used for catching signals (e.g. for timeout) during the execution. */
+jmp_buf longjmp_buffer;        // A buffer to hold info on where to jump to.
+
+void catch_signal(int signal_number) {
+    longjmp (longjmp_buffer,signal_number);
+}
+
+
+class TestCase {
+  string name;         // Name of test-case - for showing in error messages
+  int passed, failed;  // Number of tests passed/failed so far.
+  ostream& output;     // Stream to which the error messages will be sent.
+  clock_t  start_time; // time in which the test-case is constructed.
+
+public:
+   TestCase(const string& name, ostream& output=cerr): 
+     name(name),
+     output(output),
+     passed(0), failed(0),
+     start_time(clock())
+     {
+       std::signal(SIGTERM, catch_signal);
+     }
+  
+  int right() const { return this->passed; }
+  int wrong() const { return this->failed; }
+  int total() const { return failed+passed; }
+  int grade() const { return (total()==0? 0: 100*passed/total()); }
+  
+  ostream& print(ostream& out, bool show_grade=true) const {
+    double elapsed_seconds = double(clock() - start_time) / CLOCKS_PER_SEC;
+    out << endl << "*** CPU time: " << elapsed_seconds << " sec.  Right: " << passed << ".  Wrong: " << failed << ". ";
+    if (show_grade) out << "Grade: " << grade() << ". ";
+    out << "***" << endl;
+    return out;
+  }
+
+  TestCase& print()  {
+    print(this->output, /*show_grade=*/true);
+    return *this;
+  }
+  
+  TestCase& print_timeout()  {
+    this->output << "Your program timed out! (caught signal TERM)" << endl;
+    print(this->output, /*show_grade=*/false);
+    return *this;
+  }
+
+
+
+  template<typename TFUNC> TestCase& check_ok(const TFUNC actual_func) { 
+    try {
+      get_actual_value<TFUNC,void>(actual_func);
+      passed++;
+    } catch(...) {}
+    return *this;
+  }
+
+  template<typename TFUNC, typename TVAL> TestCase& check_equal(const TFUNC actual_func, const TVAL& expected_value) {
+    try {
+      TVAL actual_value = get_actual_value<TFUNC,TVAL>(actual_func);
+      if (incorrect(actual_value==expected_value))
+        output << "the result is " << actual_value << " but it should equal " << expected_value << "!" << endl;
+    } catch(...) {}
+    return *this;
+  }
+
+private:
+  
   template<typename TFUNC, typename TVAL> TVAL get_actual_value(TFUNC actual_func) {
     try {
       return actual_func();
@@ -63,40 +132,6 @@ class TestCase {
     }
   }
 
-public:
-  int right() const { return this->passed; }
-  int wrong() const { return this->failed; }
-  int total() const { return failed+passed; }
-  int grade() const { return (total()==0? 0: 100*passed/total()); }
-  
-  ostream& print(ostream& out) const {
-    return (out << "\n*** Right: " << passed << ". Wrong: " << failed << ". Grade: " << grade() << " ***\n");
-  }
-  
-  TestCase& print()  {
-    print(this->output);
-    return *this;
-  }
- 
-  TestCase(const string& name, ostream& output=cerr): 
-    name(name), 
-    output(output),
-    passed(0), failed(0) {}
-    
-  template<typename TFUNC> TestCase& check_ok(const TFUNC actual_func) { 
-    try {
-      get_actual_value<TFUNC,void>(actual_func);
-      passed++;
-    } catch(...) {}
-    return *this;
-  }
+}; // end class TestCase
 
-  template<typename TFUNC, typename TVAL> TestCase& check_equal(const TFUNC actual_func, const TVAL& expected_value) {
-    try {
-      TVAL actual_value = get_actual_value<TFUNC,TVAL>(actual_func);
-      if (incorrect(actual_value==expected_value))
-        output << "the result is " << actual_value << " but it should equal " << expected_value << "!" << endl;
-    } catch(...) {}
-    return *this;
-  }
-};
+}; // end namespace badkan
