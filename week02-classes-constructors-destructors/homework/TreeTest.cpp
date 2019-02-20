@@ -7,7 +7,7 @@
 
 #include <iostream>
 using std::cout, std::endl;
-#include "TestCase.hpp"
+#include "badkan.hpp"
 #include "Tree.h"
 
 int main() {
