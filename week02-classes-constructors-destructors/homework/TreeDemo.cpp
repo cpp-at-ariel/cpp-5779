@@ -1,0 +1,36 @@
+/**
+ * Demo file for the exercise on binary trees
+ *
+ * @author Erel Segal-Halevi
+ * @since 2019-02
+ */
+
+#include <iostream>
+using std::cout, std::endl;
+#include "Tree.h"
+
+int main() {
+  try {
+    // constructs an empty tree:
+    Tree emptytree;
+    cout << "emptytree: size=" << emptytree.size() << endl; // should print 0
+    
+    // constructs an ordered binary tree where:
+      // 5 is in the root;
+      // 3 is the root's left child;
+      // 7 is the root's right child.
+    Tree threetree;
+    threetree.insert(5).insert(3).insert(7);
+    cout << "threetree: size=" << threetree.size() << " root=" << threetree.root() << " data=";  // size=3, root=5.
+    threetree.print();
+      
+    cout << threetree.size()      // should print 3
+         << threetree.parent(3)   // should print 5
+         << threetree.parent(7)   // should print 5
+         << threetree.left(5)     // should print 3
+         << threetree.right(5)    // should print 7
+         << endl;
+  } catch (...) {
+    cout << "Caught exception!" << endl;
+  }
+}

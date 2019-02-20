@@ -1,5 +1,3 @@
-#pragma once
-
 /**
  * Defines the class TestCase, that represents a test-case 
  * in an automatic testing program.
@@ -12,12 +10,17 @@
 	 .CHECK_EQUAL(factorial(5), 120)
 	 .CHECK_OK(do_something_else())
 	 .print();
- * 
+ *
+ * @author Erel Segal-Halevi
+ * @credit Nathan Oliver: https://stackoverflow.com/a/54752705/827927
+ * @since 2019-02
  * 
  */
 
- #define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected)
- #define CHECK_OK(actual) check_ok([&](){actual;})
+#pragma once
+
+#define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected)
+#define CHECK_OK(actual) check_ok([&](){actual;})
 
 
 #include <string>
