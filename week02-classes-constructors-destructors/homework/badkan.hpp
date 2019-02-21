@@ -21,6 +21,8 @@
 
 #define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected)
 #define CHECK_OK(actual) check_ok([&](){actual;})
+#define CHECK_OUTPUT(actual,expected) check_output([&](){return actual;}, expected)
+#define CHECK_INPUT(actual,expected) check_input(actual, expected)
 
 #include <string>
 #include <iostream>
@@ -100,6 +102,24 @@ public:
     } catch(...) {}
     return *this;
   }
+  
+	template<typename TFUNC> TestCase& check_output(const TFUNC actual_func, const string& expected_string) {
+    try {
+      string actual_string = get_actual_string(actual_func);
+      if (incorrect(actual_string==expected_string))
+        output << "the result-string is " << actual_string << " but it should equal " << expected_string << "!" << endl;
+    } catch(...) {}
+		return *this;
+	}
+
+	template<typename TVAL> TestCase& check_input(const string& input, const TVAL& expected_value) {
+		istringstream istr(input);
+		TVAL actual_value;
+		istr >> actual_value;
+		if (fails(actual_value==expected_value))
+			output << "object generated from " << input << " should be " << expected_value << " but is " << actual_value << endl;
+		return *this;
+	}
 
 private:
   
@@ -120,6 +140,27 @@ private:
       throw;
     }
   }
+  
+  template<typename TFUNC> string get_actual_string(TFUNC actual_func) {
+    try {
+      ostringstream ostr;
+  		ostr << actual_func();
+  		return ostr.str();
+    } catch (const string& message) {
+      failed++;
+      output << name << ": " << "Exception in test #" << total() << ": " << message << endl;
+      throw;
+    } catch (const exception& ex) {
+      failed++;
+      output << name << ": " << "Exception in test #" << total() << ": " << ex.what() << endl;
+      throw;
+    } catch (...) {
+      failed++;
+      output << name << ": " << "Exception in test #" << total() << ".";
+      throw;
+    }
+  }
+  
 
   bool incorrect(bool condition) {
     if (condition) {
