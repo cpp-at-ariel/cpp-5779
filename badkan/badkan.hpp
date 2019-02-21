@@ -19,9 +19,12 @@
 
 #pragma once
 
-#define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected)
 #define CHECK_OK(actual) check_ok([&](){actual;})
-#define CHECK_OUTPUT(actual,expected) check_output([&](){return actual;}, expected)
+#define CHECK_THROWS(actual) check_throws([&](){actual;})
+#define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected)
+#define CHECK_OUTPUT(actual,expected) check_equal([&](){ostringstream ostr; ostr<<"'"<<actual<<"'"; return ostr.str();}, "'"+string(expected)+"'")
+
+// #define CHECK_OUTPUT(actual,expected) check_output([&](){return actual;}, expected)
 #define CHECK_INPUT(actual,expected) check_input(actual, expected)
 
 #include <string>
@@ -31,7 +34,7 @@
 #include <ctime>
 #include <csignal>
 #include <csetjmp>
-using std::string, std::ostream, std::endl, std::cerr, std::exception;
+using std::string, std::ostream, std::endl, std::cerr, std::exception, std::ostringstream,  std::istringstream;
 
 
 namespace badkan {
@@ -42,7 +45,6 @@ jmp_buf longjmp_buffer;        // A buffer to hold info on where to jump to.
 void catch_signal(int signal_number) {
     longjmp (longjmp_buffer,signal_number);
 }
-
 
 class TestCase {
   string name;         // Name of test-case - for showing in error messages
@@ -86,6 +88,7 @@ public:
 
 
 
+  /** Checks that the given function is OK, i.e., does not throw an exception */
   template<typename TFUNC> TestCase& check_ok(const TFUNC actual_func) { 
     try {
       get_actual_value<TFUNC,void>(actual_func);
@@ -93,74 +96,51 @@ public:
     } catch(...) {}
     return *this;
   }
+  
+  /** Checks that the given function throws an exception */
+  template<typename TFUNC> TestCase& check_throws(const TFUNC actual_func) { 
+    try {
+      actual_func();
+      failed++;
+      output << title() << "There should be an exception!" << endl;
+    } catch(...) {
+      passed++;
+    }
+    return *this;
+  }
 
   template<typename TFUNC, typename TVAL> TestCase& check_equal(const TFUNC actual_func, const TVAL& expected_value) {
     try {
       TVAL actual_value = get_actual_value<TFUNC,TVAL>(actual_func);
       if (incorrect(actual_value==expected_value))
-        output << "the result is " << actual_value << " but it should equal " << expected_value << "!" << endl;
+        output << title() << "the result was " << actual_value << " but it should equal " << expected_value << "!" << endl;
     } catch(...) {}
     return *this;
   }
-  
-	template<typename TFUNC> TestCase& check_output(const TFUNC actual_func, const string& expected_string) {
-    try {
-      string actual_string = get_actual_string(actual_func);
-      if (incorrect(actual_string==expected_string))
-        output << "the result-string is " << actual_string << " but it should equal " << expected_string << "!" << endl;
-    } catch(...) {}
-		return *this;
-	}
-
-	template<typename TVAL> TestCase& check_input(const string& input, const TVAL& expected_value) {
-		istringstream istr(input);
-		TVAL actual_value;
-		istr >> actual_value;
-		if (fails(actual_value==expected_value))
-			output << "object generated from " << input << " should be " << expected_value << " but is " << actual_value << endl;
-		return *this;
-	}
 
 private:
+  
+  string title() {
+    return name + " test #" + std::to_string(total()) + ": ";
+  }
   
   template<typename TFUNC, typename TVAL> TVAL get_actual_value(TFUNC actual_func) {
     try {
       return actual_func();
     } catch (const string& message) {
       failed++;
-      output << name << ": " << "Exception in test #" << total() << ": " << message << endl;
+      output << title() << "There was an exception: " << message << endl;
       throw;
     } catch (const exception& ex) {
       failed++;
-      output << name << ": " << "Exception in test #" << total() << ": " << ex.what() << endl;
+      output << title() << "There was an exception: " << ex.what() << endl;
       throw;
     } catch (...) {
       failed++;
-      output << name << ": " << "Exception in test #" << total() << ".";
+      output << title() << "There was an exception." << endl;
       throw;
     }
   }
-  
-  template<typename TFUNC> string get_actual_string(TFUNC actual_func) {
-    try {
-      ostringstream ostr;
-  		ostr << actual_func();
-  		return ostr.str();
-    } catch (const string& message) {
-      failed++;
-      output << name << ": " << "Exception in test #" << total() << ": " << message << endl;
-      throw;
-    } catch (const exception& ex) {
-      failed++;
-      output << name << ": " << "Exception in test #" << total() << ": " << ex.what() << endl;
-      throw;
-    } catch (...) {
-      failed++;
-      output << name << ": " << "Exception in test #" << total() << ".";
-      throw;
-    }
-  }
-  
 
   bool incorrect(bool condition) {
     if (condition) {
@@ -168,7 +148,6 @@ private:
       return false;
     } else {
       failed++;
-      output << name << ": " << "Failure in test #" << total() << ": ";
       return true;
     }
   }
