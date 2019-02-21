@@ -14,7 +14,7 @@ class IntList {
 
     public:
         IntList(uint newNumInts): 
-            numInts(newNumInts), 
+            numInts(newNumInts),
             theInts(new int[newNumInts]) 
             {  }
 
@@ -62,9 +62,9 @@ int main() {
     cout << "sum(list1) = " << sum(list1) << endl;
     cout << "---" << endl;
 
-    IntList list2 {list1};
+    IntList list2 = list1;
+    // IntList list2 {list1};
     // IntList list2 (list1);
-    // IntList list2 = list1;
     cout << "list1[5] = " << list1[5] << endl;
     cout << "list2[5] = " << list2[5] << endl;
     list2 = 2;
@@ -75,8 +75,6 @@ int main() {
 
 
     list3 = list1;
-    // equivalent to: 
-    // list3.operator=(list1);
 
     cout << "list1[5] = " << list1[5] << endl;
     cout << "list3[5] = " << list3[5] << endl;

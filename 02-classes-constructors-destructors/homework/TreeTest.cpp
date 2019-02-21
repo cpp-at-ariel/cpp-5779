@@ -17,20 +17,22 @@ int main() {
   
   badkan::TestCase tc("Binary tree");
   tc
-  .CHECK_EQUAL(emptytree.size(), 0)
-  .CHECK_OK   (emptytree.insert(5))
-  .CHECK_EQUAL(emptytree.size(), 1)
-  .CHECK_EQUAL(emptytree.contains(5), true)
-  .CHECK_OK   (emptytree.remove(5))
-  .CHECK_EQUAL(emptytree.size() ,0)
+  .CHECK_EQUAL (emptytree.size(), 0)
+  .CHECK_OK    (emptytree.insert(5))
+  .CHECK_EQUAL (emptytree.size(), 1)
+  .CHECK_EQUAL (emptytree.contains(5), true)
+  .CHECK_OK    (emptytree.remove(5))
+  .CHECK_THROWS(emptytree.remove(5))
+  .CHECK_EQUAL (emptytree.size() ,0)
   
-  .CHECK_EQUAL(threetree.size(), 3)
-  .CHECK_EQUAL(threetree.root(), 5)
-  .CHECK_EQUAL(threetree.parent(3), 5)
-  .CHECK_EQUAL(threetree.parent(7), 5)
-  .CHECK_EQUAL(threetree.left(5), 3)
-  .CHECK_EQUAL(threetree.right(5), 7)
-  .CHECK_OK   (threetree.print())
+  .CHECK_EQUAL (threetree.size(), 3)
+  .CHECK_EQUAL (threetree.root(), 5)
+  .CHECK_EQUAL (threetree.parent(3), 5)
+  .CHECK_EQUAL (threetree.parent(7), 5)
+  .CHECK_EQUAL (threetree.left(5), 3)
+  .CHECK_EQUAL (threetree.right(5), 7)
+  .CHECK_THROWS(threetree.insert(3))
+  .CHECK_OK    (threetree.print())
   
   .print();
   

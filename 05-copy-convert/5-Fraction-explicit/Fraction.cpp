@@ -25,6 +25,8 @@ public:
 		cout << "converting Fraction to double" << endl;
 		return double(nom) / double(den);
 	}
+	
+	
 	operator string() const {
 		return to_string(nom)+"/"+to_string(den);
 	}
