@@ -49,7 +49,7 @@ const Complex operator+(const Complex& c1, const Complex& c2) {
  * This is the suffix operator.
  */
 Complex operator"" i(long double x) {
-	return Complex { 0, double{x} };
+	return Complex { 0, static_cast<double>(x) };
 }
 
 
@@ -76,5 +76,3 @@ int main() {
 	//cout << typeid("abc").name() << " " << typeid("abc"s).name() << endl;
 
 }
-
-

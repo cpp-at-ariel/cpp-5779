@@ -15,12 +15,16 @@ int main(int argc, char **argv) {
 
     Complex c1(1,2), c2(3), c3;
     cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;    
-    cout << (c1 += c2) << endl;
-    cout << (c1 += Complex(5,6) += Complex(6,5)) << endl;
-    //c1 += c2 += c2;
-    cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;
-    c1.operator+=(c2); // equivalent to c1+=c2;
+    cout << "c1 + c2 = " << (c1 + c2) << endl;
+    cout << "c1 = " << c1 << endl;
+    cout << "c1 += c2 = " << (c1 += c2) << endl;
+    cout << "c1 = " << c1 << endl << endl;
 
+    cout << "c1 + 5+6i + 6+5i = " << (c1 + Complex(5,6) + Complex(6,5)) << endl;
+
+    cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;
+
+    c1.operator+=(c2); // equivalent to c1+=c2;
     cout << "c1 = " << c1 << endl;
     // Equivalent to:
     // cout << "c1 = ";

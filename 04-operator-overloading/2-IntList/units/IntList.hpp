@@ -13,20 +13,25 @@ class IntList {
           numInts(numInts),
           theInts (new int[numInts])
         {
-            cout << "construct(" << numInts << ")" << endl;
+            cout << "constructing an IntList with " << numInts << " ints." << endl;
         }
 
         ~IntList() {
-            cout << "destruct" << endl;
+            cout << "destructing an intlist with " << numInts << " ints." << endl;
             delete[] theInts;
         }
 
+        // Set all elements in this intList to value
         void operator=(int value);
-        
+
         int operator[](uint index) const;
         int& operator[](uint index);
 
         int operator[] (string s) const {
-            return theInts[s.size()];
+          if (s==string("first"))
+            return theInts[0];
+          else if (s==string("last"))
+            return theInts[numInts-1];
+          else throw string("Illegal argument: "+s);
         }
 };
