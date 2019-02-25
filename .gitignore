@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+.dropbox
 
 # Compiled Object files
 *.slo
