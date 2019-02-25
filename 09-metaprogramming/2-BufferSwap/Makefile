@@ -1,7 +1,7 @@
 MAINNAME= Buffer
 
 #########################################################
-# compiler stuff 
+# compiler stuff
 #########################################################
 CXX= g++
 CXXFLAGS= -Wall -Wvla -Werror -g -D_GLIBCXX_DEBUG -std=c++11
@@ -16,14 +16,14 @@ CXXTESTLINKFLAGS= -lgtest -lgtest_main -pthread
 # sources files
 ##########################################################
 # There is no SRCTESTMAIN as we are linking with gtest_main that has main
-SRCSTESTNOMAIN= $(MAINNAME)Test.cpp 
+SRCSTESTNOMAIN= $(MAINNAME)Test.cpp
 ##########################################################
 
 
 #######################
 # executables name
 #######################
-TEST= $(MAINNAME)Test
+TEST= $(MAINNAME)Test.exe
 #######################
 
 
@@ -49,7 +49,7 @@ depend: $(SRCSTESTNOMAIN)
 ##############################################
 installonce: gtestinstall makedependinstall valgrindinstall
 
-gtestinstall: 
+gtestinstall:
 	sudo apt-get install libgtest-dev
 	sudo apt-get install cmake
 	cd /usr/src/gtest; \

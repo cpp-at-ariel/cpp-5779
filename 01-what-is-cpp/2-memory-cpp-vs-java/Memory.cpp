@@ -1,5 +1,5 @@
 /**
- * Demonstrates that memory usage in C++ is accurate.
+ * Demonstrates memory usage in C++.
  * @author erelsgl
  */
 

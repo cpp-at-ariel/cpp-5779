@@ -18,10 +18,12 @@ all: $(TARGETS)
 %.pdf: %.odt
 	#
 	$(MAKEPDF) $< --outdir $(@D)
+	git add $@
 
 %.pdf: %.odp
 	#
 	$(MAKEPDF) $< --outdir $(@D)
+	git add $@
 
 clean:
 	rm -f *.pdf

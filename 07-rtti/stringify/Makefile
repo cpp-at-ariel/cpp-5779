@@ -9,7 +9,7 @@ SRCSTESTNOMAIN= test_$(MAINNAME).cpp
 
 
 #########################################################
-# compiler stuff 
+# compiler stuff
 #########################################################
 CXX= g++
 CXXFLAGS= -Wall -Wvla -Werror -g -D_GLIBCXX_DEBUG -std=c++11
@@ -21,7 +21,7 @@ CXXTESTLINKFLAGS= -lgtest -lgtest_main -pthread
 #######################
 # executables name
 #######################
-TEST= test_$(MAINNAME)
+TEST= test_$(MAINNAME).exe
 #######################
 
 
@@ -45,7 +45,7 @@ depend: $(SRCSTESTNOMAIN)
 ##############################################
 installonce: gtestinstall makedependinstall valgrindinstall
 
-gtestinstall: 
+gtestinstall:
 	sudo apt-get install libgtest-dev
 	sudo apt-get install cmake
 	cd /usr/src/gtest; \
