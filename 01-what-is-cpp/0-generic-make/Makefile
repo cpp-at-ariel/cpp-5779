@@ -20,23 +20,23 @@ endif
 
 MAINEXECUTABLE=$(subst .cxx,,$(MAIN)).exe
 
-SRCS=$(shell ls units/*.cpp) $(MAIN)
-OBJS=$(subst .c%,.o,$(SRCS))
+SOURCES=$(shell ls units/*.cpp) $(MAIN)
+OBJECTS=$(subst .c%,.o,$(SOURCES))
 
 all: $(MAINEXECUTABLE)
 	$(MAINEXECUTABLE)
 
-$(MAINEXECUTABLE): $(OBJS)
-	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(MAINEXECUTABLE)
+$(MAINEXECUTABLE): $(OBJECTS)
+	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(OBJECTS) $(LDLIBS) -o $(MAINEXECUTABLE)
 
 depend: .depend
 
-.depend: $(SRCS)
+.depend: $(SOURCES)
 	$(RM) ./.depend
 	$(CXX) $(CPPFLAGS) -MM $^>>./.depend;
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJECTS)
 	$(RM) *.o
 	$(RM) *.exe
 
