@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 
+
 class Point {
   private:    // Not required. All is private by default.
     int x;

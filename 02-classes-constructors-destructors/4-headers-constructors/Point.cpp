@@ -5,6 +5,8 @@ void Point::setX(int newX) {
 	x = newX; 
 }
 
+
+
 void Point::setY(int newY) { 
 	y = newY; 
 }

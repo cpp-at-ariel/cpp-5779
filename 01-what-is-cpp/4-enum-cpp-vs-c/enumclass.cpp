@@ -12,12 +12,14 @@ enum class Season {
 	AUTUMN	// = WINTER + 3
 };
 
+// using namespace Season;
+
 int WINTER = 60;
 
 int main() {
     cout << WINTER << endl;
     cout << int(Season::WINTER) << endl;
-    //Season curr_season = WINTER;         // won't compile
+    Season curr_season = Season::WINTER;         // won't compile
     //int curr_season = SUMMER;            // won't compile
     //int curr_season = Season::SUMMER;    // won't compile
     //Season curr_season = Season::WINTER;

@@ -1,0 +1,71 @@
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:23:2: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+        cout << "Before new" << ' ' << i << endl;
+        ^~~~
+        std::cout
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/iostream:61:18: note: 'std::cout' declared here
+  extern ostream cout;          /// Linked to standard output
+                 ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:23:38: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+        cout << "Before new" << ' ' << i << endl;
+                                            ^~~~
+                                            std::endl
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/ostream:590:5: note: 'std::endl' declared here
+    endl(basic_ostream<_CharT, _Traits>& __os)
+    ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:24:2: error: use of undeclared identifier 'this_thread'; did you mean 'std::this_thread'?
+        this_thread::sleep_for(chrono::seconds(3));
+        ^~~~~~~~~~~
+        std::this_thread
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/thread:330:13: note: 'std::this_thread' declared here
+  namespace this_thread
+            ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:24:25: error: use of undeclared identifier 'chrono'; did you mean 'std::chrono'?
+        this_thread::sleep_for(chrono::seconds(3));
+                               ^~~~~~
+                               std::chrono
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/chrono:966:13: note: 'std::chrono' declared here
+  namespace chrono
+            ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:30:2: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+        cout << &p[0] << endl;
+        ^~~~
+        std::cout
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/iostream:61:18: note: 'std::cout' declared here
+  extern ostream cout;          /// Linked to standard output
+                 ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:30:19: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+        cout << &p[0] << endl;
+                         ^~~~
+                         std::endl
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/ostream:590:5: note: 'std::endl' declared here
+    endl(basic_ostream<_CharT, _Traits>& __os)
+    ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:32:2: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+        cout << "After new" << endl;
+        ^~~~
+        std::cout
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/iostream:61:18: note: 'std::cout' declared here
+  extern ostream cout;          /// Linked to standard output
+                 ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:32:25: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+        cout << "After new" << endl;
+                               ^~~~
+                               std::endl
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/ostream:590:5: note: 'std::endl' declared here
+    endl(basic_ostream<_CharT, _Traits>& __os)
+    ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:36:2: error: use of undeclared identifier 'this_thread'; did you mean 'std::this_thread'?
+        this_thread::sleep_for(chrono::seconds(5));
+        ^~~~~~~~~~~
+        std::this_thread
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/thread:330:13: note: 'std::this_thread' declared here
+  namespace this_thread
+            ^
+/home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/2-memory-cpp-vs-java/Memory.cpp:36:25: error: use of undeclared identifier 'chrono'; did you mean 'std::chrono'?
+        this_thread::sleep_for(chrono::seconds(5));
+                               ^~~~~~
+                               std::chrono
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.1.0/../../../../include/c++/7.1.0/chrono:966:13: note: 'std::chrono' declared here
+  namespace chrono
+            ^
+10 errors generated.

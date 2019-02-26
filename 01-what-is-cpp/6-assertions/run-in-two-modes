@@ -1,7 +1,9 @@
 #!/bin/bash
+
 printf "\\nDEBUG MODE:\n\n"
 clang++-5.0 --std=c++17 assert.cpp
 ./a.out
+
 printf "\\nNO-DEBUG MODE:\n\n"
 clang++-5.0 --std=c++17 -DNDEBUG assert.cpp
 ./a.out
