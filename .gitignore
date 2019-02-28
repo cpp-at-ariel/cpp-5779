@@ -1,6 +1,8 @@
 # Prerequisites
 *.d
 .dropbox
+compiling_error.txt
+desktop.ini
 
 # Compiled Object files
 *.slo

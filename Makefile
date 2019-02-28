@@ -10,6 +10,8 @@ TARGETS=$(subst .odp,.pdf,$(subst .odt,.pdf,$(SOURCES)))
 
 all: $(TARGETS)
 	#
+	git commit -m "update pdf files"
+	git push
 
 #
 #TARGETS: $(TARGETS)

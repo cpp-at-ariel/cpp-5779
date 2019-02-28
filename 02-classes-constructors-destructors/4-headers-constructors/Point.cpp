@@ -1,14 +1,14 @@
 #include "Point.hpp"
 
 
-void Point::setX(int newX) { 
-	x = newX; 
+void Point::setX(int newX) {
+	x = newX;
 }
 
 
 
-void Point::setY(int newY) { 
-	y = newY; 
+void Point::setY(int newY) {
+	y = newY;
 }
 
 string Point::to_string() {
