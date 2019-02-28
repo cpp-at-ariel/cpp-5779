@@ -13,19 +13,18 @@ all: $(TARGETS)
 	git commit -m "update pdf files"
 	git push
 
-#
-#TARGETS: $(TARGETS)
-#
 
 %.pdf: %.odt
 	#
 	$(MAKEPDF) $< --outdir $(@D)
 	git add $@
+	git add $<
 
 %.pdf: %.odp
 	#
 	$(MAKEPDF) $< --outdir $(@D)
 	git add $@
+	git add $<
 
 clean:
 	rm -f *.pdf
