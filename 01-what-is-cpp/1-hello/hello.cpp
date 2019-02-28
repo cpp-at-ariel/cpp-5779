@@ -12,5 +12,4 @@ int main() {
     cout << endl << "Hello " << name << "!" << endl;
     cout << (1 << 5) << endl;
     return 0;
-    
 }
