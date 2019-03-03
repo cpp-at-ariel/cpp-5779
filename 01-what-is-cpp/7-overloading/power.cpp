@@ -31,6 +31,6 @@ double power(double a, double b) {
 int main() {
     // cout << power(2,3) << endl;
     // cout << power(2.0,3.5) << endl;
-    // cout << power(2, 3.5) << endl;  // ???
-    cout << power(2, -3) << endl;   // ???
+    cout << power(2, 3.5) << endl;  // ???
+    // cout << power(2, -3) << endl;   // ???
 }

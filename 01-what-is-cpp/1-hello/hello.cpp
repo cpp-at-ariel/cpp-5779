@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     string name;
     cout << "What is your name? ";
-    cin >> name;
+    // cin >> name;
     cout << endl << "Hello " << name << "!" << endl;
     cout << (1 << 5) << endl;
     return 0;

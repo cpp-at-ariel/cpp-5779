@@ -12,7 +12,7 @@ enum Season {
 	AUTUMN		// = WINTER + 3
 };
 
-// int WINTER = 60;  // won't compile - redefinition
+int WINTER = 60;  // won't compile - redefinition
 
 int main() {
 		cout << WINTER;

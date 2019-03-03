@@ -15,7 +15,7 @@ double safesqrt(double x) {
 	if (x<0)
 		throw string(
 			"x must be non-negative, but it is "
-			+std::to_string(x));
+			+to_string(x));
 	return std::sqrt(x);
 }
 

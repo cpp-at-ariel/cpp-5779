@@ -12,8 +12,6 @@ enum class Season {
 	AUTUMN	// = WINTER + 3
 };
 
-// using namespace Season;
-
 int WINTER = 60;
 
 int main() {

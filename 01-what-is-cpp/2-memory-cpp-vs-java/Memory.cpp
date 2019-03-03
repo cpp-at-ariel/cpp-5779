@@ -11,7 +11,7 @@ using namespace std;
 constexpr int SIZE=125*1000*1024; // ~ 125,000,000
 
 class Point {
-	public:
+	private:
 		int x;
 		int y;
 	public:
@@ -27,7 +27,7 @@ int main() {
 	for (int  i=0; i<SIZE; ++i)
 		p[i] = Point();
 		
-	cout << &p[0] << endl;
+	// cout << &p[0] << endl;
 
 	cout << "After new" << endl;
 	// The free memory should drop by ... KB.

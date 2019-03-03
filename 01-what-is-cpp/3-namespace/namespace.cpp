@@ -14,11 +14,11 @@ namespace def{
 	void printx() { std::cout << x << std::endl; }
 };
 
-// using namespace abc; 
-// using namespace def; 
+using namespace abc; 
+using namespace def; 
 int main() {
 	abc::printx();
 	def::printx();
-	// printx();
+	printx();
 	std::cout << abc::xyz::w << std::endl;
 }
