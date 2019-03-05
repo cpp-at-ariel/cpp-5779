@@ -1,5 +1,6 @@
 /**
- * Demonstrates static members
+ * Demonstrates static members.
+ * Creates a class "point" with static members for giving a unique index to each object.
  */
 
 #include <iostream>
