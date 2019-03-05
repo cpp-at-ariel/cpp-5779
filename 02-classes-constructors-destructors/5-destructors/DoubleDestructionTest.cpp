@@ -11,10 +11,10 @@ using namespace std;
 
 int main() {
     {
-        IntList l0(1000);
-        l0.fill(99);
-        cout << "l0.get(5) = " << l0.get(5) << endl;
-        //l0.~IntList();
+        IntList list0(1000);
+        list0.fill(99);
+        cout << "l0.get(5) = " << list0.get(5) << endl;
+        // list0.~IntList();
     }
 
     {

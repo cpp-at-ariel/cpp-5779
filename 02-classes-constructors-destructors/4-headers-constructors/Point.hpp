@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <iostream>
 using namespace std;
 
 
@@ -21,7 +21,13 @@ class Point {
     string to_string();
 
     // // Constructors:
-    Point() { x = 88; y = 11; }
-    Point(int z) { x = y = z; }
+    Point() {
+      cout << "Point()" << endl; 
+      x = 88; y = 12; 
+    }
+    Point(int z) { 
+      cout << "Point[int]" << endl; 
+      x = y = z; 
+    }
     Point(int, int);
 };

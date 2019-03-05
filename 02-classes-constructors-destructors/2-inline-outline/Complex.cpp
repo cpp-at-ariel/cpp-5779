@@ -9,7 +9,7 @@ class Complex {
     double re, im;
 
 public:
-    Complex() {  re = im  = 0; }    // inline constructor
+    Complex() {  re = im  = 999; }    // inline constructor
     Complex(double re, double im);  // "outline" constructor
 
     string to_string() {           // inline method  
@@ -18,9 +18,13 @@ public:
     Complex sum(Complex b);        // "outline" method
 };
 
+// string Complex::to_string() {
+//     return string("hahaha");
+// }
 
 // "outline" constructor implementation:
 Complex::Complex(double re, double im) {  
+    //this.re = 1; compile error
     (*this).re = re;
     this->im = im; 
 }   
@@ -40,4 +44,8 @@ int main() {
 
     Complex c = a.sum(b);
     cout << "c = " << c.to_string() << endl;
+
+    Complex d;
+    cout << "d = " << d.to_string() << endl;
+
 }

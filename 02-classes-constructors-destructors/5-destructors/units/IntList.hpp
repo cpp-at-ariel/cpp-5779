@@ -6,18 +6,21 @@ using namespace std;
 class IntList {
     private:
         int* theInts;
-        uint numInts;
+        char* listName;
+        unsigned int numInts;
 
     public:
         IntList(uint numInts) {
             cout << "construct(" << numInts << ")" << endl;
             theInts = new int[numInts];
+            listName = new char[5];
             this->numInts = numInts;
         }
 
         ~IntList() {
-            cout << "destruct" << endl;
+            cout << "destruct(" << numInts << ")" << endl;
             delete[] theInts;
+            delete[] listName;
         }
 
         void fill(int value);

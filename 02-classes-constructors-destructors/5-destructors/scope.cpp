@@ -8,6 +8,8 @@
 #include <iostream>
 using namespace std;
 
+int j=1111;
+
 int main() {
 	int i = 1111;
 	int j = i+2222;
@@ -18,5 +20,5 @@ int main() {
 		int k = i+4444;
 	}
 	cout << "j = " << j << endl;
-	//cout << k << endl;  // k is not defined
+	// cout << k << endl;  // k is not defined
 }

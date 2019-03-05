@@ -21,6 +21,9 @@ int main() {
     Point p2 {11,21};
     cout << "p2 = " << p2.to_string() << endl;
 
+    Rectangle r;
+    cout << "r = " << r.to_string() << endl;
+
     // cout << "Point{7} = " << Point{7}.to_string() << endl;
 
     // //Point p3();

@@ -23,14 +23,15 @@ int power(int a, unsigned int b) {
 //     return exp(b*log(a));
 // }
 
-double power(double a, double b) {
-    cout << "   power of reals" << endl;
-    return exp(b*log(a));
-}
+// double power(double a, double b) {
+//     cout << "   power of reals" << endl;
+//     return exp(b*log(a));
+// }
 
 int main() {
+    int x = 3.5;
     // cout << power(2,3) << endl;
     // cout << power(2.0,3.5) << endl;
-    cout << power(2, 3.5) << endl;  // ???
+    // cout << power(2, 3.5) << endl;  // ???
     // cout << power(2, -3) << endl;   // ???
 }
