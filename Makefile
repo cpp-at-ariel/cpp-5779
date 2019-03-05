@@ -3,11 +3,12 @@
 # Author: Erel Segal-Halevi
 # Since: 2019-02
 
+SOURCES_ODP=$(shell find . -name '*.odp')
+TARGETS_ODP=$(subst .odp,.pdf,$(SOURCES_ODP))
+SOURCES_ODT=$(shell find . -name '*.odt')
+TARGETS_ODT=$(subst .odt,.pdf,$(SOURCES_ODT))
 
-SOURCES=$(shell find . -name '*.od*')
-TARGETS=$(subst .odp,.pdf,$(subst .odt,.pdf,$(SOURCES)))
-
-all: $(TARGETS)
+all: $(TARGETS_ODP) $(TARGETS_ODT)
 	#
 	git commit -m "update pdf files"
 	git push
