@@ -6,8 +6,8 @@
 all: a.out
 	./a.out
 
-a.out: Point.o PointArrayTest.o Rectangle.o Triangle.o Circle.o
-	clang++-5.0 -std=c++17 Point.o PointArrayTest.o Rectangle.o Triangle.o Circle.o
+a.out: Point.o main.o Rectangle.o Triangle.o Circle.o
+	clang++-5.0 -std=c++17 Point.o main.o Rectangle.o Triangle.o Circle.o
 
 Point.o: Point.cpp Point.hpp
 	clang++-5.0 -std=c++17 --compile Point.cpp -o Point.o
@@ -21,11 +21,8 @@ Circle.o: Circle.cpp Circle.hpp Point.hpp
 Triangle.o: Triangle.cpp Triangle.hpp Point.hpp
 	clang++-5.0 -std=c++17 --compile Triangle.cpp -o Triangle.o
 
-PointTest.o: PointTest.cpp Point.hpp
-	clang++-5.0 -std=c++17 --compile PointTest.cpp -o PointTest.o
-
-PointArrayTest.o: PointArrayTest.cpp Point.hpp
-	clang++-5.0 -std=c++17 --compile PointArrayTest.cpp -o PointArrayTest.o
+main.o: main.cpp Point.hpp
+	clang++-5.0 -std=c++17 --compile main.cpp -o main.o
 
 clean:
 	rm -f *.o a.out

@@ -1,5 +1,5 @@
 /**
- * Demonstrates inline and outline method implementation
+ * Demonstrates inline and outline method implementation in a single file
  */
 
 #include <iostream>

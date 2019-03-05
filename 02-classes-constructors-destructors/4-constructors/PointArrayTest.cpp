@@ -1,8 +1,5 @@
 #include "Point.hpp"
 
-// The following line demonstrates the importance of "pragma once":
-#include "Rectangle.hpp"  
-
 #include <iostream>
 using namespace std;
 
