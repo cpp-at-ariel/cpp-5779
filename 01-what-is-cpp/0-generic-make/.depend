@@ -1,2 +1,4 @@
 greeter.o: units/greeter.cpp units/greeter.hpp
-greeting1.o: greeting1.cpp units/greeter.hpp
+greeting1.o: \
+  /home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/0-generic-make/greeting1.cpp \
+  /home/erelsgl/Dropbox/ariel/cpp-5779/01-what-is-cpp/0-generic-make/units/greeter.hpp
