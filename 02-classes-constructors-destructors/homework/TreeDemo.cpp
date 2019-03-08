@@ -1,5 +1,5 @@
 /**
- * Demo file for the exercise on binary trees
+ * Demo program for the exercise on binary trees
  *
  * @author Erel Segal-Halevi
  * @since 2019-02
@@ -8,7 +8,7 @@
 #include <iostream>
 using std::cout, std::endl;
 
-#include "Tree.h"
+#include "Tree.hpp"
 
 int main() {
   try {
@@ -21,9 +21,10 @@ int main() {
       // 3 is the root's left child;
       // 7 is the root's right child.
     ariel::Tree threetree;
-    threetree.insert(5).insert(3).insert(7);
-    cout << "threetree: size=" << threetree.size() << " root=" << threetree.root() << " data=";  // size=3, root=5.
+    threetree.insert(5).insert(7).insert(3);
+    cout << "threetree: size=" << threetree.size() << " root=" << threetree.root() << endl << "   ";  // size=3, root=5.
     threetree.print();
+    cout << endl;
       
     cout << threetree.size()      // should print 3
          << threetree.parent(3)   // should print 5

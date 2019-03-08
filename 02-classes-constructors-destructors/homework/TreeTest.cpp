@@ -8,12 +8,12 @@
 #include <iostream>
 using std::cout, std::endl;
 #include "badkan.hpp"
-#include "Tree.h"
+#include "Tree.hpp"
 
 int main() {
   ariel::Tree emptytree;
   ariel::Tree threetree;  
-  threetree.insert(5).insert(3).insert(7);
+  threetree.insert(5).insert(7).insert(3);
   
   badkan::TestCase tc("Binary tree");
   tc
