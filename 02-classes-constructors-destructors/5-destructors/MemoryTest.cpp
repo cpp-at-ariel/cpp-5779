@@ -16,7 +16,7 @@ using namespace std;
 #include <chrono>
 #include <vector>
 constexpr int SIZE=100000*1024; // 100000 KB
-constexpr int TIME=2; // seconds
+constexpr int TIME=5; // seconds
 
 int main() {
     cout << "Before loop" << endl;

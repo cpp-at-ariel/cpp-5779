@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 
-
 class Point {
   private:    // Not required. All is private by default.
     int x;
@@ -26,7 +25,7 @@ class Point {
       x = 88; y = 12; 
     }
     Point(int z) { 
-      cout << "Point[int]" << endl; 
+      cout << "Point(int)" << endl; 
       x = y = z; 
     }
     Point(int, int);

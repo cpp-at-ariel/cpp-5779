@@ -14,6 +14,9 @@ int main() {
     Complex c = a.sum(b);
     cout << "c = " << c.to_string() << endl;
 
+    c = c.sum(b);
+    cout << "c = " << c.to_string() << endl;
+
     Complex d;
     cout << "d = " << d.to_string() << endl;
 

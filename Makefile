@@ -13,12 +13,17 @@ all: $(TARGETS_ODP) $(TARGETS_ODT)
 	git commit -m "update pdf files"
 	git push
 
-
 %.pdf: %.odt
 	#
 	libreoffice --headless --convert-to pdf $< --outdir $(@D)
 	git add $@
 	git add $<
+
+xyz.pdf: xyz.odt
+	#
+	libreoffice --headless --convert-to pdf xyz.odt --outdir $(@D)
+	git add xyz.pdf
+	git add xyz.odt
 
 %.pdf: %.odp
 	#

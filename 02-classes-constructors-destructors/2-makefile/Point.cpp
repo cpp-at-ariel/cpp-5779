@@ -1,5 +1,10 @@
 #include "Point.hpp"
 
+int f(int x) {
+	return x+1;
+}
+
+
 void Point::setX(int newX) {
 	x = newX;
 }

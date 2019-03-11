@@ -23,6 +23,8 @@ class IntList {
             delete[] listName;
         }
 
+        void print() {cout << "pointer=" << theInts << endl; }
+
         void fill(int value);
         int get(uint index);
         void put(uint index, int value);
