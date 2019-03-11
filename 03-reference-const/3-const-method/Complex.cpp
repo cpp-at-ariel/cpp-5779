@@ -1,5 +1,5 @@
 /**
- * Demonstrates returning references from functions to create chain of calls.
+ * Demonstrates const methods.
  * 
  * @author Erel Segal-Halevi
  * @since 2018-03
