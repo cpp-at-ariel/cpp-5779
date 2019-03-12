@@ -23,7 +23,7 @@ const int& g3() {
 }
 
 int& g4() {
-	int localnum;
+	int localnum = 9999;
 	return localnum;
 }
 
@@ -31,13 +31,19 @@ int& g4() {
 int main() {
     int num1 = g1();
     int num2 = g2();
+    // int& rnum1 = g1();  // compilation error
+    int& rnum2 = g2();    // OK
     cout << "num1 = " << num1 << endl;
     cout << "num2 = " << num2 << endl;
+    cout << "rnum2 = " << rnum2 << endl;
+    cout << "globalnum = " << globalnum << endl;
 
-    //int& rnum1 = g1();  // compilation error
-    int& rnum2 = g2();    // OK
-    //cout << "rnum1 = " << &rnum1 << " " << rnum1 << endl;
-    cout << "rnum2 = " << &rnum2 << " " << rnum2 << endl;
+    num1++;
+    cout << "globalnum = " << globalnum << endl;
+    num2++;
+    cout << "globalnum = " << globalnum << endl;
+    rnum2++;
+    cout << "globalnum = " << globalnum << endl << endl;
 
     const int& crnum1 = g1();
     const int& crnum2 = g2();

@@ -28,16 +28,19 @@ int main() {
     cout << "rnum = " << &rnum << " " << rnum << " " << num << endl;
     rnum = num2;  // Here a reference is unlike a pointer
     cout << "rnum = " << &rnum << " " << rnum << " " << num << endl << endl;
+    // num = 4;
+    // cout << "rnum = " << &rnum << " " << rnum << " " << num << endl << endl;
 
     // References and rvalues:
-    //int& rnum2 = 10; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+    // int& rnum2 = 10; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
     //rnum2 = 7;
 
 
     cout << "Const Reference:" << endl;
     // const references and rvalues:
+    // const int* pnum1 = &10;
     const int& crnum1 = 10;  // unlike a pointer
-    //crnum1 = 7;            // error: variable 'crnum1' declared const here
+    // crnum1 = 7;            // error: variable 'crnum1' declared const here
 
     cout << "crnum1 = " << &crnum1 << " " << crnum1 << endl;
 
@@ -47,8 +50,12 @@ int main() {
     // Segmentation fault:
     int* nullnumptr = nullptr;
     int& nullnumref = *nullnumptr;
+    
+    // int& nullnumref = *nullptr;
+
+    nullnumref = 5;
     cout << "nullnumptr = " << nullnumptr << endl;
     cout << "&nullnumref = " << &nullnumref << endl;
-    cout << "(*nullnumptr) = " << (*nullnumptr) << endl;
+    // cout << "(*nullnumptr) = " << (*nullnumptr) << endl;
     cout << "nullnumref" << nullnumref << endl; // segmentation fault
 }

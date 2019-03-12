@@ -13,7 +13,9 @@ using std::cout, std::endl;
 int main() {
   ariel::Tree emptytree;
   ariel::Tree threetree;  
-  threetree.insert(5).insert(7).insert(3);
+  threetree.insert(5);
+  threetree.insert(7);
+  threetree.insert(3);
   
   badkan::TestCase tc("Binary tree");
   tc
