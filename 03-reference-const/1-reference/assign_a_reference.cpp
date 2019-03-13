@@ -32,7 +32,7 @@ int main() {
     // cout << "rnum = " << &rnum << " " << rnum << " " << num << endl << endl;
 
     // References and rvalues:
-    // int& rnum2 = 10; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+    //int& rnum2 = 10+num; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
     //rnum2 = 7;
 
 
@@ -46,16 +46,4 @@ int main() {
 
     const int& crnum2 = 10;
     cout << "crnum2 = " << &crnum2 << " " << crnum2 << endl << endl;
-
-    // Segmentation fault:
-    int* nullnumptr = nullptr;
-    int& nullnumref = *nullnumptr;
-    
-    // int& nullnumref = *nullptr;
-
-    nullnumref = 5;
-    cout << "nullnumptr = " << nullnumptr << endl;
-    cout << "&nullnumref = " << &nullnumref << endl;
-    // cout << "(*nullnumptr) = " << (*nullnumptr) << endl;
-    cout << "nullnumref" << nullnumref << endl; // segmentation fault
 }

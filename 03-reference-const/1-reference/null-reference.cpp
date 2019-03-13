@@ -15,4 +15,17 @@ int main() {
 	int* j=nullptr;
 	test(*j);  // This is considered undefined behavior!
 	           // But on my computer, it works and prints NULL.
+
+
+
+    // Segmentation fault:
+    int* nullnumptr = nullptr;
+    int& nullnumref = *nullnumptr;
+    // int& nullnumref = *nullptr; // compilation error
+
+    nullnumref = 5;
+    cout << "nullnumptr = " << nullnumptr << endl;
+    cout << "&nullnumref = " << &nullnumref << endl;
+    // cout << "(*nullnumptr) = " << (*nullnumptr) << endl;
+    cout << "nullnumref" << nullnumref << endl; // segmentation fault
 }
