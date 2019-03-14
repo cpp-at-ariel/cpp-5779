@@ -1,4 +1,4 @@
-#!make -f
+#!/usr/bin/make -f
 # A makefile for building pdf files from the text (odt files) and slides (odp files).
 # Author: Erel Segal-Halevi
 # Since: 2019-02
