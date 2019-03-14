@@ -21,7 +21,9 @@ int main() {
       // 3 is the root's left child;
       // 7 is the root's right child.
     ariel::Tree threetree;
-    threetree.insert(5).insert(7).insert(3);
+    threetree.insert(5);
+    threetree.insert(7);
+    threetree.insert(3);
     cout << "threetree: size=" << threetree.size() << " root=" << threetree.root() << endl << "   ";  // size=3, root=5.
     threetree.print();
     cout << endl;
