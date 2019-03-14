@@ -1,5 +1,5 @@
 /**
- * Examples of automatic tests for the exercise on binary trees.
+ * Examples of automatic tests for the exercise on physical numbers.
  *
  * @author Erel Segal-Halevi
  * @since 2019-02
