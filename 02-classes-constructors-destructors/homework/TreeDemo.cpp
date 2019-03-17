@@ -33,8 +33,8 @@ int main() {
          << threetree.parent(7)   // should print 5
          << threetree.left(5)     // should print 3
          << threetree.right(5)    // should print 7
-         //<< threetree.insert(5)    // should throw an exception: "5 already exists"
          << endl;
+    threetree.insert(5);    // should throw an exception, since 5 already exists.
   } catch (...) {
     cout << "Caught exception!" << endl;
   }
