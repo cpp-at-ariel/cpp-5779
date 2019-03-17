@@ -2,6 +2,7 @@
  * Demo program for the exercise on binary trees
  *
  * @author Erel Segal-Halevi
+ * 
  * @since 2019-02
  */
 
