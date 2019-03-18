@@ -43,27 +43,42 @@ public:
     // operators
     //-------------------------------------
 
+    //----------------------------------
+    // unary operator
+    //----------------------------------
+    // the const on the return type is to
+    // avoid -c1= c10 from working
+    const Complex operator-() const {
+        return Complex(-_re , -_im);
+    }
+
+    // Logical NOT
+    bool operator!() const {
+        return _re==0 && _im==0;
+    }
+
     //----------------------------------------
     // binary operators
     //----------------------------------------
+
+    const Complex operator+(const Complex& other) const {
+         return Complex(_re + other._re, _im + other._im);
+     }
+
     Complex& operator+=(const Complex& other) {
         _re+= other._re;
         _im+= other._im;
-        return *this;
+        return *this; // for call chaining
     }
 
-    // const Complex operator+(const Complex& other) const {
-    //     return Complex(_re + other._re, _im + other._im);
+    // const Complex operator-(const Complex& other) const {
+    //     return Complex(_re - other._re, _im - other._im);
     // }
 
     Complex& operator-=(const Complex& other) {
         _re-= other._re;
         _im-= other._im;
         return *this;
-    }
-
-    const Complex operator-(const Complex& other) const {
-        return Complex(_re - other._re, _im - other._im);
     }
 
     Complex& operator*=(const Complex& other) {
@@ -84,20 +99,6 @@ public:
     }
     */
 
-    //----------------------------------
-    // unary operator
-    //----------------------------------
-    // the const on the return type is to
-    // avoid -c1= c10 from working
-    const Complex operator-() const {
-        return Complex(-_re , -_im);
-    }
-
-    // Logical NOT
-    bool operator!() const {
-        return _re==0 && _im==0;
-    }
-
     // prefix increment:
     Complex& operator++() {
         _re++;
@@ -105,7 +106,7 @@ public:
     }
 
     // postfix increment:
-    const Complex operator++(int flag_for_postfix_increment) {
+    const Complex operator++(int dummy_flag_for_postfix_increment) {
         Complex copy = *this;
         _re++;
         return copy;
@@ -129,7 +130,7 @@ public:
     //-------------------------------------
     // friend global binary operators
     //-------------------------------------
-    friend const Complex operator+ (const Complex& c1, const Complex& c2);
+    friend const Complex operator- (const Complex& c1, const Complex& c2);
     friend const Complex operator* (const Complex& c1, const Complex& c2);
     friend bool operator==(const Complex& c1, const Complex& c2);
     friend bool operator!=(const Complex& c1, const Complex& c2);
@@ -150,8 +151,8 @@ inline ostream& operator<< (ostream& os, const Complex& c) {
 //----------------------------------------
 // friend global binary operators
 //----------------------------------------
-inline const Complex operator+(const Complex& c1, const Complex& c2) {
-    return Complex(c1._re + c2._re, c1._im + c2._im);
+inline const Complex operator-(const Complex& c1, const Complex& c2) {
+    return Complex(c1._re - c2._re, c1._im - c2._im);
 }
 
 

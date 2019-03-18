@@ -50,9 +50,12 @@ ostream& operator<< (ostream& os, string s) {
 
 int main() {
     string x="abc", y="def";
+    
     cout << "3 * x  = " << 3 * x << endl;
-    cout << "x + y = " << (x+y) << endl;
+    //Equivalent to: 
     //cout << operator*(3,x) << endl;
+
+    cout << "x + y = " << (x+y) << endl;  // defined here: https://gcc.gnu.org/onlinedocs/gcc-4.6.2/libstdc++/api/a01075_source.html
     cout << "3 * (x + y) = " << 3 * (x + y) << endl;
     cout << "3 * x + y = " << 3 * x + y << endl;
 

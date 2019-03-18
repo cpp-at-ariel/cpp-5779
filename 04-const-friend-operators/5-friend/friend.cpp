@@ -12,27 +12,28 @@ class MyClass {
 private:
 	int myField;
 public:
-	int getField1();
-	friend int getField2(const MyClass& obj);
+	MyClass(): myField(555) {}
+	void print1(ostream& out) const;                      // member method
+	friend void print2(ostream& out, const MyClass& obj); // friend function
 };
 
-int MyClass::getField1() {
-	return myField;
+void MyClass::print1(ostream& out) const {
+	out << myField << endl;
 }
 
-int getField2(const MyClass& obj) {
-	return obj.myField;
+void print2(ostream& out, const MyClass& obj) {
+	out << obj.myField << endl;
 }
 
-// Does not compile!
-// int getField3(const MyClass& obj) {
-// 	return obj.myField;
-// }
+/* Does not compile
+void print3(ostream& out, const MyClass& obj) {
+	out << obj.myField << endl;
+}
+*/
 
 int main() {
 	MyClass obj;
-	cout << obj.getField1() << endl;
-	cout << getField2(obj) << endl;
-	// cout << getField3(obj) << endl;
+	obj.print1(cout);
+	print2(cerr, obj);
 	return 0;
 }

@@ -15,7 +15,7 @@ public:
     Complex(double re=0, double im=0): 
         _re(re),
         _im(im)
-        {  
+        {
             //this++; // compile error
         }
 
