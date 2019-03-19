@@ -11,10 +11,18 @@ using namespace std;
 #include <assert.h>
 
 int main(int argc, char **argv) {
-    cout << "Complex Demo" << endl;
+    auto a = Complex(3,2)+Complex(4,3);
+    cout << "type of a: " << typeid(a).name() << endl;
+    // int a=2, b=3;
+    // cout << (((a += b) += b)  += b) << endl;
+    // cout << a << endl;
+    // cout << "Complex Demo" << endl;
 
     Complex c1(1,2), c2(3), c3;
     cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;    
+    // cout << ++c1 << endl;
+    // cout << ++++c1 << endl;
+    // cout << ++++++++++++++++++++c1 << endl;
     cout << "c1 + c2 = " << (c1 + c2) << endl;
     cout << "c1 = " << c1 << endl;
     cout << "c1 += c2 = " << (c1 += c2) << endl;
@@ -100,6 +108,8 @@ int main(int argc, char **argv) {
     cout << "c1 is now " << c1<<endl;
     cout << "Enter a complex number: ";
     cin >> c1;
+    if (!cin)
+        cout << "Error! Wrong format!" << endl;
     cout << endl << "You entered " << c1<<endl;
 
 

@@ -67,13 +67,14 @@ istream& operator>> (istream& input, Complex& c) {
     //---------------------------------------------
     // Checks format, with rewind on failure.
     //---------------------------------------------
+    double new_re, new_im;
 
     // remember place for rewinding
     ios::pos_type startPosition = input.tellg();
 
-    if ( (!(input >> c._re))                 ||
+    if ( (!(input >> new_re))                 ||
          (!getAndCheckNextCharIs(input,'+')) ||
-         (!(input >> c._im))                 ||
+         (!(input >> new_im))                 ||
          (!(getAndCheckNextCharIs(input,'i'))) ) {
 
         // rewind on error
@@ -81,6 +82,9 @@ istream& operator>> (istream& input, Complex& c) {
         input.clear(); // clear error so seekg will work
         input.seekg(startPosition); // rewind
         input.clear(errorState); // set back the error flag
+    } else {
+        c._re = new_re;
+        c._im = new_im;
     }
 
     return input;

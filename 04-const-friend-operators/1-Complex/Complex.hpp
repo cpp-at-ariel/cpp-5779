@@ -67,9 +67,12 @@ public:
     // binary operators
     //----------------------------------------
 
+    // (c1+c2) = 5;
+    
     const Complex operator+(const Complex& other) const {
          return Complex(_re + other._re, _im + other._im);
-     }
+        //  5+7=12;
+    }
 
     Complex& operator+=(const Complex& other) {
         _re+= other._re;
@@ -127,13 +130,6 @@ public:
         return os;
     }
     */
-    
-    //----------------------------------
-    // friend global IO operators
-    //----------------------------------
-    friend ostream& operator<< (ostream& os, const Complex& c);
-    friend istream& operator>> (istream& is, Complex& c);
-    //-------------------------------------
 
     //-------------------------------------
     // friend global binary operators
@@ -142,4 +138,11 @@ public:
     friend const Complex operator* (const Complex& c1, const Complex& c2);
     friend bool operator==(const Complex& c1, const Complex& c2);
     friend bool operator!=(const Complex& c1, const Complex& c2);
+    
+    //----------------------------------
+    // friend global IO operators
+    //----------------------------------
+    friend ostream& operator<< (ostream& os, const Complex& c);
+    friend istream& operator>> (istream& is, Complex& c);
+    //-------------------------------------
 }; // end of class Complex

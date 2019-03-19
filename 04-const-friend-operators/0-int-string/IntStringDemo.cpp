@@ -4,7 +4,7 @@
  * @since 2018-03
  */
 
-#include <iostream>
+#include <iostream>typeid
 #include <vector>
 using namespace std;
 
@@ -57,7 +57,7 @@ int main() {
     
     cout << "3 * y  = " << 3 * y << endl;
     //Equivalent to: 
-    //cout << operator*(3,y) << endl;
+    // cout << operator*(3,y) << endl;
 
     cout << "x + y = " << (x+y) << endl;  // defined here: https://gcc.gnu.org/onlinedocs/gcc-4.6.2/libstdc++/api/a01075_source.html
     cout << "3 * (x + y) = " << 3 * (x + y) << endl;
