@@ -19,6 +19,10 @@ string operator* (string s, int n) {
     return "("+n*s+")";
 }
 
+bool operator!(string s) {
+    return (s.length()==0);
+}
+
 string operator+(string a, string b) {
 //    return b+a;   // segmentation fault - stack overflow!
 
@@ -51,15 +55,24 @@ ostream& operator<< (ostream& os, string s) {
 int main() {
     string x="abc", y="def";
     
-    cout << "3 * x  = " << 3 * x << endl;
+    cout << "3 * y  = " << 3 * y << endl;
     //Equivalent to: 
-    //cout << operator*(3,x) << endl;
+    //cout << operator*(3,y) << endl;
 
     cout << "x + y = " << (x+y) << endl;  // defined here: https://gcc.gnu.org/onlinedocs/gcc-4.6.2/libstdc++/api/a01075_source.html
     cout << "3 * (x + y) = " << 3 * (x + y) << endl;
     cout << "3 * x + y = " << 3 * x + y << endl;
 
     cout << (x * 3) << endl;
+
+    cout << (!x) << endl;
+
+    // x = "";
+    if (!x) {
+        cout << "x is empty" << endl;
+    } else {
+        cout << "x is not empty" << endl;
+    }
     
     //cout << operator*(x,3) << endl;
     return 0;
