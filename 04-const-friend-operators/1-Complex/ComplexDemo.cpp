@@ -19,6 +19,9 @@ int main(int argc, char **argv) {
     cout << "c1 = " << c1 << endl;
     cout << "c1 += c2 = " << (c1 += c2) << endl;
     cout << "c1 = " << c1 << endl << endl;
+    cout << "c1 += c2 += c2 += c2 = " << (c1 += c2 += c2 += c2 += c2) << endl;
+    // Complex c9 = c1+c2;
+    // (c1+c2) = 5;
 
     cout << "c1 + 5+6i + 6+5i = " << (c1 + Complex(5,6) + Complex(6,5)) << endl;
 

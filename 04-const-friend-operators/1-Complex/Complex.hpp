@@ -50,6 +50,12 @@ public:
     // avoid -c1= c10 from working
     const Complex operator-() const {
         return Complex(-_re , -_im);
+        // Complex result;
+        // result._re = _re;
+        // result._im = _im;
+        // return result;
+        // int a = 5;
+        // cout << -a << endl;
     }
 
     // Logical NOT
@@ -81,6 +87,8 @@ public:
         return *this;
     }
 
+    // (a+bi)*(c+di) = 
+    // (ac-bd) + (ad+bc)i
     Complex& operator*=(const Complex& other) {
         double new_re = _re*other._re - _im*other._im;
         double new_im = _re*other._im + _im*other._re; 
@@ -135,40 +143,3 @@ public:
     friend bool operator==(const Complex& c1, const Complex& c2);
     friend bool operator!=(const Complex& c1, const Complex& c2);
 }; // end of class Complex
-
-//----------------------------------------
-// friend global IO operators
-//----------------------------------------
-inline ostream& operator<< (ostream& os, const Complex& c) {
-    // return (os << c._re << '+' << c._im << 'i');
-    // equivalent to:
-    os << c._re << '+' << c._im << 'i';
-    return os;
-}
-
-//----------------------------------------
-
-//----------------------------------------
-// friend global binary operators
-//----------------------------------------
-inline const Complex operator-(const Complex& c1, const Complex& c2) {
-    return Complex(c1._re - c2._re, c1._im - c2._im);
-}
-
-
-
-
-inline const Complex operator*(const Complex& c1, const Complex& c2) {
-    return Complex (c1._re * c2._re - c1._im * c2._im,
-                    c1._re * c2._im + c1._im * c2._re);
-}
-
-inline bool operator==(const Complex& c1, const Complex& c2) {
-    // this implementation can cause problems with
-    // double precision (== for doubles)
-    return ((c1._re==c2._re)&&(c1._im==c2._im));
-}
-
-inline bool operator!=(const Complex& c1, const Complex& c2) {
-    return (!(c1==c2));
-}
