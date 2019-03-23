@@ -17,6 +17,7 @@
  * 
  */
 
+
 #pragma once
 
 #define CHECK_OK(actual) check_ok([&](){actual;}, __FILE__+string(":")+to_string(__LINE__))
@@ -51,7 +52,7 @@ class TestCase {
   clock_t  start_time; // time in which the test-case is constructed.
 
 public:
-   TestCase(const string& name, ostream& output=cerr): 
+   TestCase(const string& name="", ostream& output=cerr): 
      name(name),
      output(output),
      passed(0), failed(0),
@@ -84,6 +85,11 @@ public:
     return *this;
   }
 
+  TestCase&  setname(const string& newname) {
+    name = newname;
+    return *this;
+  }
+
 
 
   /** Checks that the given function is OK, i.e., does not throw an exception */
@@ -100,7 +106,7 @@ public:
     try {
       actual_func();
       failed++;
-      output << context << ", "  << title() << "There should be an exception!" << endl;
+      output << title(context) << "There should be an exception!" << endl;
     } catch(...) {
       passed++;
     }
@@ -111,15 +117,15 @@ public:
     try {
       TVAL actual_value = get_actual_value<TFUNC,TVAL>(actual_func, context);
       if (incorrect(actual_value==expected_value))
-        output << context << ", " << title() << "the result was " << actual_value << " but it should equal " << expected_value << "!" << endl;
+        output << title(context) << "the result was " << actual_value << " but it should equal " << expected_value << "!" << endl;
     } catch(...) {}
     return *this;
   }
 
 private:
   
-  string title() {
-    return name + " test #" + std::to_string(total()) + ": ";
+  string title(const string& context) {
+    return name + /*" test #" + std::to_string(total()) + */ ", " + context + ": ";
   }
   
   template<typename TFUNC, typename TVAL> TVAL get_actual_value(TFUNC actual_func, const string& context) {
@@ -127,15 +133,15 @@ private:
       return actual_func();
     } catch (const string& message) {
       failed++;
-      output << context << ", "  << title() << "There was an exception: " << message << endl;
+      output << title(context) << "There was an exception: " << message << endl;
       throw;
     } catch (const exception& ex) {
       failed++;
-      output << context << ", "  << title() << "There was an exception: " << ex.what() << endl;
+      output << title(context) << "There was an exception: " << ex.what() << endl;
       throw;
     } catch (...) {
       failed++;
-      output << context << ", "  << title() << "There was an exception." << endl;
+      output << title(context) << "There was an exception." << endl;
       throw;
     }
   }
