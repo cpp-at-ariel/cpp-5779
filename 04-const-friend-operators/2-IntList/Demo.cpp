@@ -28,6 +28,7 @@ int main() {
 
     const IntList clist(10);
     cout << "clist[5] = " << clist[5] << endl;
+    // clist[5] = 5;
 
     list0[0] = 123;
     list0[999] = 456;

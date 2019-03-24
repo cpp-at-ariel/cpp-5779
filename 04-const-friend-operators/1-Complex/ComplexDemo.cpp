@@ -11,18 +11,23 @@ using namespace std;
 #include <assert.h>
 
 int main(int argc, char **argv) {
-    auto a = Complex(3,2)+Complex(4,3);
-    cout << "type of a: " << typeid(a).name() << endl;
-    // int a=2, b=3;
-    // cout << (((a += b) += b)  += b) << endl;
-    // cout << a << endl;
-    // cout << "Complex Demo" << endl;
+    cout << "Complex Demo" << endl;
+
+    // auto a = Complex(3,2)+Complex(4,3);
+    // cout << "type of a: " << typeid(a).name() << endl;
+
+    int a=2, b=3;
+    cout << (((a += b) += b)  += b) << endl;
+    cout << a << endl;
 
     Complex c1(1,2), c2(3), c3;
+    // const Complex c4(6,7);
+    // cout << -c4 << endl;
     cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;    
-    // cout << ++c1 << endl;
-    // cout << ++++c1 << endl;
-    // cout << ++++++++++++++++++++c1 << endl;
+    cout << ++c1 << endl;
+    cout << ++++c1 << endl;
+    cout << ++++++++++++++++++++c1 << endl;
+    // cout << c1++++ << endl;
     cout << "c1 + c2 = " << (c1 + c2) << endl;
     cout << "c1 = " << c1 << endl;
     cout << "c1 += c2 = " << (c1 += c2) << endl;

@@ -24,7 +24,7 @@ class IntList {
         // Set all elements in this intList to value
         void operator=(int value);
 
-        int operator[](uint index) const;
+        const int operator[](uint index) const;
         int& operator[](uint index);
 
         int operator[] (string s) const {

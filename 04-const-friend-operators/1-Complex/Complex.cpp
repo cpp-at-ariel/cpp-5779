@@ -37,10 +37,10 @@ const Complex operator-(const Complex& c1, const Complex& c2) {
 // friend global IO operators
 //----------------------------------------
 ostream& operator<< (ostream& os, const Complex& c) {
-    // return (os << c._re << '+' << c._im << 'i');
+    return (os << c._re << '+' << c._im << 'i');
     // equivalent to:
-    os << c._re << '+' << c._im << 'i';
-    return os;
+    // os << c._re << '+' << c._im << 'i';
+    // return os;
 }
 
 

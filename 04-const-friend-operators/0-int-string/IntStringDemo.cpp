@@ -4,9 +4,11 @@
  * @since 2018-03
  */
 
-#include <iostream>typeid
+#include <iostream>
 #include <vector>
 using namespace std;
+
+// int operator*(int a, int b) { return 0; }
 
 string operator* (int n, string s){ 
     string result = s;
@@ -45,9 +47,9 @@ ostream& operator<< (ostream& os, string s) {
     return os;
 }
 
-// int operator+(const vector<int>& y, int x) {
-//     int sum = x;
-//     for (int i=0; i<y.size(); ++i)
+// int oper//ator+(const vector<int>& y, int x) {
+//     int //sum = x;
+//     for //(int i=0; i<y.size(); ++i)
 //         sum += y[i];
 //     return sum;
 // }
