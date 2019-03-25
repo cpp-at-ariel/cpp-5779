@@ -34,7 +34,7 @@ class IntList {
             if (other.numInts!=this->numInts) {
                 delete[] theInts;
                 theInts = new int[other.numInts]; // init
-                theInts[5] = 3474567;  // garbage
+                // theInts[5] = 3474567;  // garbage
                 numInts = other.numInts;
             }
             
