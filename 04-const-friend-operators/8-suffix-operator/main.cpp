@@ -9,7 +9,6 @@
 using namespace std;
 
 
-
 int operator"" _h(unsigned long long hours) {
 	return hours*3600;
 }
@@ -22,8 +21,8 @@ int operator"" _s(unsigned long long seconds) {
 	return seconds;
 }
 
-int operator ""_aaa(unsigned long long hours) {
-	return hours*111;
+int operator ""_aaa(unsigned long long x) {
+	return x*111;
 }
 
 
@@ -48,17 +47,16 @@ const Complex operator+(const Complex& c1, const Complex& c2) {
 /**
  * This is the suffix operator.
  */
-Complex operator"" i(long double x) {
+Complex operator"" i(unsigned long long x) {
 	return Complex { 0, static_cast<double>(x) };
 }
-
 
 
 
 int main() {
 	
 	int timeInSeconds = 1_h + 30_m + 12_s;
-	cout << timeInSeconds << endl;
+	cout << "1_h + 30_m + 12_s = " << timeInSeconds << endl;
 
 	cout << 2_aaa << endl;
 
@@ -68,9 +66,9 @@ int main() {
 	cout << "d = " << d << endl;
 	cout << "c+d = " << c+d << endl;
 
-	cout << "4+5i = " << (4.0 + 5.0i) << endl;
+	cout << "4+5i = " << (4 + 5i) << endl;
 
-	Complex e = c + (6.0 + 7.0i);
+	Complex e = c + (6 + 7i);
 	cout << "e = " << e << endl;
 
 	//cout << typeid("abc").name() << " " << typeid("abc"s).name() << endl;

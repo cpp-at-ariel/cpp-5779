@@ -25,5 +25,6 @@ class Polynomial2 {
 int main() {
 	Polynomial2 p(2,3,4);
 	cout << "p(5) = " << p(5) << endl; // prints 69
+	cout << "Polynomial2(2,3,4)(5) = " << Polynomial2(2,3,4)(5) << endl; // prints 69
 	return 0;
 }

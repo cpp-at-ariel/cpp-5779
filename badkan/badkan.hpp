@@ -59,6 +59,7 @@ public:
      start_time(clock())
      {
        std::signal(SIGTERM, catch_signal);
+       std::signal(SIGSEGV, catch_signal);
      }
   
   int right() const { return this->passed; }
@@ -79,8 +80,14 @@ public:
     return *this;
   }
   
-  TestCase& print_timeout()  {
-    output << "Your program timed out! (caught signal TERM)" << endl;
+  TestCase& print_signal(int signal)  {
+    if (signal==SIGTERM) {
+      output << "Your program timed out! (caught signal TERM)" << endl;
+    } else if (signal==SIGSEGV) {
+      output << "Your program made a segmentation fault! (caught signal SEGV)" << endl;
+    } else {
+      output << "Your program caught signal #" << signal << endl;
+    }
     print(output, /*show_grade=*/false);
     return *this;
   }
@@ -130,7 +137,13 @@ private:
   
   template<typename TFUNC, typename TVAL> TVAL get_actual_value(TFUNC actual_func, const string& context) {
     try {
-      return actual_func();
+      if (std::is_same<TVAL,void>::value) {
+        // output << title(context) << " void " << endl;
+        actual_func();
+      } else {
+        // output << title(context) << " TVAL " << endl;
+        return actual_func();
+      }
     } catch (const string& message) {
       failed++;
       output << title(context) << "There was an exception: " << message << endl;
