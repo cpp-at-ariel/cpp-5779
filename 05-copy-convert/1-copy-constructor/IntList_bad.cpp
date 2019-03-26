@@ -50,6 +50,7 @@ int sum(IntList list) {
     for (int i=0; i<list.size(); ++i) {
         result += list[i];
     }
+    list[5] = 88;
     return result;
 }
 
@@ -60,6 +61,7 @@ int main() {
     list1 = 1;
     cout << "list1[5] = " << list1[5] << endl << endl;
     cout << "sum(list1) = " << sum(list1) << endl;
+    cout << "list1[5] = " << list1[5] << endl << endl;
     cout << "---" << endl;
 
     IntList list2 = list1;

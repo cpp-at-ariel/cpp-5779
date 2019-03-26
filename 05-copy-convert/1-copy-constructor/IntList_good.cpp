@@ -19,6 +19,7 @@ class IntList {
             {  }
 
         IntList(const IntList& other): 
+        // IntList(IntList): 
             IntList(other.numInts) 
         {
             cout << "copy constructor doing deep copy" << endl;
@@ -34,7 +35,6 @@ class IntList {
             if (other.numInts!=this->numInts) {
                 delete[] theInts;
                 theInts = new int[other.numInts]; // init
-                // theInts[5] = 3474567;  // garbage
                 numInts = other.numInts;
             }
             
@@ -64,6 +64,10 @@ class IntList {
         int& operator[](uint index) {
             return theInts[index];
         }
+
+        void operator()(const IntList& other) {
+            cout << "hahaha" << endl;
+        }
 };
 
 /**
@@ -75,6 +79,7 @@ int sum(IntList list) {
     for (int i=0; i<list.size(); ++i) {
         result += list[i];
     }
+    list[5] = 88;
     return result;
 }
 
@@ -85,6 +90,7 @@ int main() {
     list1 = 1;
     cout << "list1[5] = " << list1[5] << endl << endl;
     cout << "sum(list1) = " << sum(list1) << endl;
+    cout << "list1[5] = " << list1[5] << endl << endl;
     cout << "---" << endl;
 
     IntList list2 {list1};     // calls copy ctor
@@ -97,7 +103,8 @@ int main() {
     cout << "list2[5] = " << list2[5] << endl << endl;
 
     IntList list3{20};
-    list3 = list1;
+    list3 = list1;   // operator=
+    // list3(list1);   // operator()
     cout << "list1[5] = " << list1[5] << endl;
     cout << "list3[5] = " << list3[5] << endl;
     list3 = 3;

@@ -48,14 +48,17 @@ const Complex operator+(const Complex& c1, const Complex& c2) {
  * This is the suffix operator.
  */
 Complex operator"" i(unsigned long long x) {
-	return Complex { 0, static_cast<double>(x) };
+	// return Complex { 0, static_cast<double>(x) };
+	return Complex { 0, (double)x };
 }
 
 
 
 int main() {
-	
+	// #include "test.hpp"
 	int timeInSeconds = 1_h + 30_m + 12_s;
+	// 1_h  is compiled to
+	//   operator"" _h(1)
 	cout << "1_h + 30_m + 12_s = " << timeInSeconds << endl;
 
 	cout << 2_aaa << endl;

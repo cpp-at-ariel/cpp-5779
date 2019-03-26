@@ -21,7 +21,7 @@ public:
 	// Add "explicit" in one of the lines below to allow compilation of last line.
 	// See	https://stackoverflow.com/a/49092822/827927
 	Fraction(int nn): Fraction(nn, 1) { }
-	operator double() const {
+	explicit operator double() const {
 		cout << "converting Fraction to double" << endl;
 		return double(nom) / double(den);
 	}
@@ -78,11 +78,14 @@ int main() {
 
 	cout << "f2 = " << f2 << endl;
 	cout << ((Fraction)2) << endl;
-	cout << "f1+2 = " << (f1 + Fraction{2}) << endl;   // OK!
-	cout << "f1+2 = " << (double{f1} + 2) << endl;    // OK!
+	cout << "f1+2 = " << (f1 + Fraction{2}) << endl;   // OK! explicit conversion constructor
+	cout << "f1+2 = " << (double{f1} + 2) << endl;    // OK! explicit conversion operator
+	cout << "f1+2 = " << (f1 + 2) << endl;   // ambiguous! implicit conversion
+	cout << "2+f1 = " << (2 + f1) << endl;   // ambiguous! implicit conversion
 
-	// cout << "f1+2 = " << (f1 + 2) << endl;   // ambiguous!
-	// cout << "2+f1 = " << (2 + f1) << endl;   // ambiguous!
+	cout << "f1-2 = " << (f1 - 2) << endl;   // ambiguous! implicit conversion
+	// cout << "2-f1 = " << (2 - f1) << endl;   // ambiguous! implicit conversion
+
 
 	return 0;
 }
