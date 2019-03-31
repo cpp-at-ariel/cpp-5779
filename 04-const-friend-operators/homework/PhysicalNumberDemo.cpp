@@ -6,11 +6,12 @@
  */
 
 #include <iostream>
-#include <strstream>
+#include <sstream>
 #include <stdexcept>
-using std::cout, std::endl, std::boolalpha;
+using std::cout, std::endl, std::boolalpha, std::istringstream;
 #include "PhysicalNumber.h"
-using ariel::PhysicalNumber;
+#include "Unit.h"
+using ariel::PhysicalNumber, ariel::Unit;
 
 int main() {
   try {
@@ -21,7 +22,7 @@ int main() {
     cout << (b-a) << endl;   // Prints "-1700[m]"
     cout << (-a) << endl;   // Prints "-2[km]"
 
-    cout << boolalpha; // print booleans as strings
+    cout << boolalpha; // print booleans as strings from now on:
     cout << (a>b) << endl;  // Prints "true"
     cout << (a<=b) << endl;  // Prints "false"
     cout << (a==PhysicalNumber(2000, Unit::M)) << endl;  // Prints "true"
@@ -40,4 +41,5 @@ int main() {
   } catch (...) {
     cout << "Unexpected exception!" << endl;
   }
+  return 100;
 }
