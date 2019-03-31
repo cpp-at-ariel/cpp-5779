@@ -19,7 +19,7 @@ class IntList {
             {  }
 
         IntList(const IntList& other): 
-        // IntList(IntList): 
+        // IntList(IntList other): 
             IntList(other.numInts) 
         {
             cout << "copy constructor doing deep copy" << endl;
@@ -74,12 +74,12 @@ class IntList {
  * If you pass a parameter by value - 
  *    the compiler will call the copy ctor
  */
-int sum(IntList list) {
+int sum(const IntList& list) {
     int result=0;
     for (int i=0; i<list.size(); ++i) {
         result += list[i];
     }
-    list[5] = 88;
+    // list[5] = 88;
     return result;
 }
 

@@ -9,7 +9,7 @@
 using namespace std;
 
 
-int operator"" _h(unsigned long long hours) {
+int operator"" _h(const unsigned long long hours) {
 	return hours*3600;
 }
 
@@ -30,9 +30,12 @@ int operator ""_aaa(unsigned long long x) {
 class Complex {
 	double _re, _im;
 public:
-	Complex(double re, double im=0): _re(re), _im(im) {}
+	Complex(double re, double im=0): _re(re), _im(im) {
+		cout << "constructing complex(" << re << "," << im << ")"<<endl;
+	}
     friend ostream& operator<< (ostream& os, const Complex& c);
     friend const Complex operator+ (const Complex& c1, const Complex& c2);
+	friend const Complex operator+(int r, const Complex& c2);
 };
 
 
@@ -42,6 +45,10 @@ ostream& operator<< (ostream& os, const Complex& c) {
 
 const Complex operator+(const Complex& c1, const Complex& c2) {
     return Complex(c1._re + c2._re, c1._im + c2._im);
+}
+
+const Complex operator+(int r, const Complex& c2) {
+    return Complex(c2._re + r, c2._im);
 }
 
 /**

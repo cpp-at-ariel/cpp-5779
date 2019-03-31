@@ -23,6 +23,10 @@ class Polynomial2 {
 		double operator() (double x) { 
 			return _a*x*x + _b*x + _c; }
 
+		double operator()() { 
+			return 0; }
+
+
 		// double getValue(double x) {   // Java style
 		// 	return _a*x*x + _b*x + _c; }
 };
