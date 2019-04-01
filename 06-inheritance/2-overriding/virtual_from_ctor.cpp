@@ -1,6 +1,8 @@
 /**
  * Shows that when calling virtual functions from the constructor,
  * the version of the current class is called.
+ * 
+ * CREDIT: Shlomi, 5778 c++ course.
  */
 
 #include <iostream>

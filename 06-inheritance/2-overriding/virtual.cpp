@@ -17,7 +17,7 @@ public:
 class Base
 {
 public:
-	Base() : _vari(0) {  }
+	Base() : _vari(999) {  }
 	Base(int i) : _vari(i) { }
 	virtual void output(ostream& out) {
 		out << " Base:" << _vari;

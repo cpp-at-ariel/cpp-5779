@@ -17,7 +17,7 @@ public:
 class Base
 {
 public:
-	Base() : _vari(0) {  }
+	Base() : _vari(999) {  }
 	Base(int i) : _vari(i) { }
 	void output(ostream& out) {
 		out << " Base:" << _vari;
@@ -53,16 +53,16 @@ Derived operator-(const Derived& b) {
 int main()
 {
 	cout << endl << "---" << endl;
-	Derived d1;
+	Derived d1;  // calls default ctor of Base (inits i) and Derived (does not init j)
 	d1.output(cout);
 	cout << endl << "---" << endl;
-
 
 	Derived d2(6, 8);
 	d2.output(cout);
 	cout << endl << "---" << endl;
 
-	Base b1 = d1;
+	// Object slicing:
+	Base b1 = d1;  // calls copy ctor of Base with d1.[Base]
 	b1.output(cout);
 	cout << endl << "---" << endl;
 
@@ -77,7 +77,6 @@ int main()
 	Base* b3p = new Derived(7,9);
 	b3p->output(cout);
 	cout << endl << "---" << endl;
-
 
 	Base b10(10);
 	(-b10).output(cout);
