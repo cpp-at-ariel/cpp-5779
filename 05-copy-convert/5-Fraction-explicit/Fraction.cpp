@@ -14,13 +14,14 @@ using namespace std;
 class Fraction {
 	int 	nom;
 	int 	den;
-
+	// MyClass a;
 public:
 	Fraction(int nn, int dn): nom(nn), den(dn) { }
+	// Fraction(int nn, int dn) { nom=nn; den=dn; }
 
 	// Add "explicit" in one of the lines below to allow compilation of last line.
 	// See	https://stackoverflow.com/a/49092822/827927
-	explicit Fraction(int nn): Fraction(nn, 1) { }
+	 Fraction(int nn): Fraction(nn, 1) { }
 	explicit operator double() const {
 		cout << "converting Fraction to double" << endl;
 		return double(nom) / double(den);
@@ -73,8 +74,12 @@ int main() {
 	// cout << "std::sqrt(f1) = " << std::sqrt(f1) << endl;
 	// cout << "sin(f1) = " << sin(f1) << endl;
 
-	Fraction f2 {2};  // explicit - will work even if constructor is explicit.
-	// Fraction f3 = 3;  // implicit - won't work if constructor is explicit.
+	Fraction f2 {2};  // explicit - will work even if constructor is explicit.	
+	Fraction f3 (3);  // explicit - will work even if constructor is explicit.
+	Fraction f4 = 4;  // implicit - won't work if constructor is explicit.
+
+	Fraction farray[5] {2,3,4,5,6};  // 5 times implicit constructor
+	// Fraction farray[5] (2,3,4,5,6);  // does not compile
 
 	cout << "f2 = " << f2 << endl;
 	cout << ((Fraction)2) << endl;

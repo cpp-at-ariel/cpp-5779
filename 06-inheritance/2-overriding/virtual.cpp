@@ -19,9 +19,10 @@ class Base
 public:
 	Base() : _vari(999) {  }
 	Base(int i) : _vari(i) { }
-	virtual void output(ostream& out) {
+	virtual void output(ostream& out) const {
 		out << " Base:" << _vari;
 	}
+	virtual int f() const {}
 private:
 	int _vari;
 };

@@ -17,7 +17,9 @@ int WINTER = 60;
 int main() {
     cout << WINTER << endl;
     cout << int(Season::WINTER) << endl;
-    Season curr_season = Season::WINTER;         // won't compile
+    Season curr_season = Season::WINTER;
+    string name[4] {"winter", "spring", "summer", "autumn"};
+    cout << name[int(curr_season)];
     //int curr_season = SUMMER;            // won't compile
     //int curr_season = Season::SUMMER;    // won't compile
     //Season curr_season = Season::WINTER;

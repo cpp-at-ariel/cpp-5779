@@ -7,6 +7,8 @@ public:
 	MyClass() { cout << "MyClass:default\n"; }
 	MyClass(int x) { cout << "MyClass::int\n"; }
 	~MyClass() { cout << "MyClass dtor\n"; }
+	int myint() const { return 999; }
+	int vari() const { return 999; }
 };
 
 class OtherClass
@@ -25,17 +27,17 @@ public:
 	Base(int i) : _vari(i) { cout << "Base: int\n"; }
 	~Base() { cout << "Base dtor\n"; }
 	int vari() const { return _vari; }
-protected:
+private:
 	int _vari;
 };
 
-class Derived : private Base
+class Derived : public Base, public MyClass
 {
 public:
 	Derived(): _otherObj(), _myObj() { cout << "Derived::default\n"; }
 	Derived(int i, int j) : _myObj(0), Base(i), _varj(j) { cout << "Derived:: int int\n"; }
 	~Derived() { cout << "---\nDerived dtor\n"; }
-	int vari2 () const { return vari(); }
+	int vari2 () const { return MyClass::vari(); }
 private:
 	int _varj;
 	MyClass _myObj;
@@ -46,10 +48,13 @@ int main()
 {
 	cout << "---" << endl;
 	Derived d1;
-	// cout << d1._vari << endl;
-	cout << d1.vari() << endl;
+	cout << d1.Base::vari() << endl;
+	cout << d1.myint() << endl;
 	cout << d1.vari2() << endl;
 	cout << "---" << endl;
 	Derived d2(6, 8);
+
+	Base b1    = d1;  // slicing of Base
+	MyClass c1 = d1;  // slicing of MyClass
 	cout << "---" << endl;
 }

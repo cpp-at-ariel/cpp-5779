@@ -66,12 +66,12 @@ int main()
 	b1.output(cout);
 	cout << endl << "---" << endl;
 
-	Base& b2 = d2;
-	b2.output(cout);
-	cout << endl << "---" << endl;
-
 	Base* b2p = &d2;
 	b2p->output(cout);
+	cout << endl << "---" << endl;
+
+	Base& b2 = d2;
+	b2.output(cout);
 	cout << endl << "---" << endl;
 
 	Base* b3p = new Derived(7,9);
