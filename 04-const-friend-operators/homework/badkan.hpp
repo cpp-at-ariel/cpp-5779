@@ -24,7 +24,6 @@
 #define CHECK_THROWS(actual) check_throws([&](){actual;}, __FILE__+string(":")+to_string(__LINE__))
 #define CHECK_EQUAL(actual,expected) check_equal([&](){return actual;}, expected, __FILE__+string(":")+to_string(__LINE__))
 #define CHECK_OUTPUT(actual,expected) check_equal([&](){ostringstream ostr; ostr<<"'"<<actual<<"'"; return ostr.str();}, "'"+string(expected)+"'", __FILE__+string(":")+to_string(__LINE__))
-#define CHECK_INPUT(actual,expected) check_input(actual, expected)
 
 #include <string>
 #include <iostream>
