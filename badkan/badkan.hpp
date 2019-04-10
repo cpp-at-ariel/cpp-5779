@@ -58,6 +58,7 @@ public:
      passed(0), failed(0),
      start_time(clock())
      {
+       output << std::boolalpha;
        std::signal(SIGTERM, catch_signal);
        std::signal(SIGSEGV, catch_signal);
      }

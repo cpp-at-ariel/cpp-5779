@@ -1,5 +1,7 @@
 /**
- * A demo of function overloading in C++
+ * A demo of function overloading in C++.
+ * @author Erel Segal-Halevi
+ * @since  2018-03
  */
 
 #include <iostream>

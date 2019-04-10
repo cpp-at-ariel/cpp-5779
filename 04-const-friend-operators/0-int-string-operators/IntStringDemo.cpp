@@ -55,6 +55,10 @@ ostream& operator<< (ostream& os, string s) {
 // }
 
 int main() {
+    int i=5;
+    cout << ((i--)-i) << endl;
+    return 0;
+
     string x="abc", y="def";
     
     cout << "3 * y  = " << 3 * y << endl;
