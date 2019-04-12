@@ -32,7 +32,11 @@ void printlargenums() {
 
 
 int main() {
-    2==3;
+    // 2==3;
+    double huge1 = 1e302;
+    double huge2 = huge1 + 99999999999999;
+    cout << huge2-huge1 << endl;
+
     cout << 1234.5678 << endl;
     cout << 12345678. << endl;
 
