@@ -4,12 +4,13 @@ using namespace std;
 
 struct Base {
 	int i=555;
+	int j;
 	void print() { cout << i << endl; }
 };
 
 struct Derived: public Base {
-	char c='a';
-	void print() { cout << i << " " << c << endl; }
+	float f=56.78;
+	void print() { cout << i << " " << f << endl; }
 };
 
 struct Unrelated {

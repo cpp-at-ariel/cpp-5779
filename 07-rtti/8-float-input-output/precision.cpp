@@ -37,12 +37,15 @@ int main() {
     double huge2 = huge1 + 99999999999999;
     cout << huge2-huge1 << endl;
 
+    cout << true << boolalpha << true << endl;
+
+
     cout << 1234.5678 << endl;
     cout << 12345678. << endl;
 
-    cout << setprecision(4);
-    cout << 1234.5678 << endl;
-    cout << 12345678. << endl;
+    cout << setprecision(4) 
+         << 1234.5678 << endl
+         << 12345678. << endl;
 
     cout << setprecision(100);
     cout << 1234.5678 << endl;

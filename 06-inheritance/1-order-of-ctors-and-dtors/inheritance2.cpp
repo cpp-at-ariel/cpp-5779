@@ -48,7 +48,7 @@ int main()
 {
 	cout << "---" << endl;
 	Derived d1;
-	cout << d1.Base::vari() << endl;
+	cout << d1.vari() << endl;
 	cout << d1.myint() << endl;
 	cout << d1.vari2() << endl;
 	cout << "---" << endl;

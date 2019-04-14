@@ -28,8 +28,8 @@ int main() {
   RGB image[dimx*dimy];
   for (int j = 0; j < dimy; ++j)  {  // row
     for (int i = 0; i < dimx; ++i) { // column
-      image[dimx*j+i].red = (i % 256);
-      image[dimx*j+i].green = (j % 256);
+      // image[dimx*j+i].red = (i % 256);
+      // image[dimx*j+i].green = (j % 256);
       image[dimx*j+i].blue = ( (i*i+j*j) % 256);
     }
   }
@@ -39,6 +39,8 @@ int main() {
   ///
   ///image processing
   ///
+  // imageFile.write(&image, 3*dimx*dimy);
+  // imageFile.write((char*)(&image), 3*dimx*dimy);
   imageFile.write(reinterpret_cast<char*>(&image), 3*dimx*dimy);
   imageFile.close();
   return 0;
