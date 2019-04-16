@@ -31,14 +31,14 @@ string to_string(const Complex& c) {
 }
 
 int main() {
-	// cout << "The result is 2 " << endl;
-	// cerr << "There is a bug ";
-	// clog << "There is a log ";
+	cout << "The result is 2 " << endl;
+	cerr << "There is a bug " << endl;
 	// this_thread::sleep_for(chrono::seconds(3));
 	// return 0;
 
 	ostringstream sout;
 	Complex c{2,3};
+
 	sout << 1 << " " << c << " ";
 	assert(sout.str().compare("1 2+3i ")==0);
 	cout << sout.str() << endl;
@@ -53,14 +53,20 @@ int main() {
 	cout << " k1=" << k1 << " c1=" << c1 <<endl; 
 
 
-	stringstream sinout("12 aa bcd");
+	stringstream sinout("12 b aa");
 	int i, j; string a; 
+	cout << "state before: " << (sinout.rdstate()) << endl;
+	cout << "tellg before: " << (sinout.tellg()) << endl;
 	sinout >> i >> a >> j;
+	cout << "state after: " << (sinout.rdstate()) << endl;
+	sinout.clear();
+	cout << "tellg after: " << (sinout.tellg()) << endl;
+	// if (!sinout) throw runtime_error("bad input");
 	cout << (sinout? "good": "bad") << endl;
 	cout << (!sinout? "bad": "good") << endl;
 	cout << "i = " << i << endl;
-	cout << "j = " << j << endl;
 	cout << "a = " << a << endl;
+	cout << "j = " << j << endl;
 	cout << sinout.str() << endl;
 	sinout << "efg";
 	cout << sinout.str() << endl;

@@ -25,24 +25,21 @@ int main()
 	// cout << d11->i << " " << d11->c << endl;
 	//return 0;
 	{
-		double d=12.45;
-		int i = (int)d;
-		// int j = reinterpret_cast<int>(d);  // compile error
-		// cout << i << " " << j << endl;
+		int i=5;
 
-		//double f = reinterpret_cast<double>(i);   // compile error
-		//cout << e << " " << f << endl;
+		int* ip = &i;
+		double* dp = (double*)ip;
+		double* ep = reinterpret_cast<double*>(ip);
+		cout << *dp << " " << *ep << endl;        // garbage garbage
 
-		double* dp = &d;
-		int* ip = (int*)dp;
-		int* jp = reinterpret_cast<int*>(dp);
+		int* jp = reinterpret_cast<int*>(ep);
 		cout << *ip << " " << *jp << endl;        // garbage garbage
 
-		double& dr = d;
-		int& ir = (int&)d;
-		int& jr = reinterpret_cast<int&>(d);
-		cout << ir << " " << jr << endl;        // garbage garbage
-		cout << "---" << endl;
+		// double& dr = d;
+		// int& ir = (int&)d;
+		// int& jr = reinterpret_cast<int&>(d);
+		// cout << ir << " " << jr << endl;        // garbage garbage
+		// cout << "---" << endl;
 	}
 
 	{

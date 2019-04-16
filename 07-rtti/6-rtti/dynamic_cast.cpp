@@ -67,19 +67,17 @@ int main()
 		Base2* bp2b = new Base2;
 
 		if (Derived2* dp2a = dynamic_cast<Derived2*>(bp2a)) {
-			cout << "bp2a points to a Derived2! " << endl;
+			cout << "bp2a points to a Derived2! c=" << dp2a->c << endl;
 		} else {
 			cout << "bp2a does NOT point to a Derived2! " << endl;
 		}
 		if (Derived2* dp2b = dynamic_cast<Derived2*>(bp2b)) {
-			cout << "bp2b points to a Derived2! " << endl;
+			cout << "bp2b points to a Derived2! c=" << dp2b->c << endl;
 		} else {
 			cout << "bp2b does NOT point to a Derived2! " << endl;
 		}
 	}
-
-
-	/*{
+	{
 		Base1* bp1a = new Derived1;
 		Base1* bp1b = new Base1;
 
@@ -88,7 +86,7 @@ int main()
 		} else {
 			cout << "bp1a does NOT point to a Derived1! " << endl;
 		}
-	}*/
+	}
 
 	{
 		// Dynamic cast with references
