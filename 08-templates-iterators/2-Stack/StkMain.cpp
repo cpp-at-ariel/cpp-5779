@@ -24,9 +24,11 @@ int main() {
 	strStk.push(str1);
 	// Old C++ style
 	for (
-		Stk<string>::iterator it= strStk.begin(); 
+		Stk<string>::iterator it = strStk.begin(); 
 		it!=strStk.end(); 
-		++it) {
+		++it
+		)
+	{
 		cout << it->size() << " ";
 		cout << *it;
 	}
@@ -54,12 +56,12 @@ int main() {
 	cout << endl;
 
 	Stk<int> intStk3 (intStk.begin(), intStk.end());
-	
+
 	// Remark: C++-11 allows also to write classes that have {} constructors:
 	// Stk<int> intStk3{43, 21, -22};
 
 	cout << intStk2.top() << endl;
-	intStk2.top()= 100000;
+	intStk2.top() = 100000;
 	cout << intStk2.top() << endl;
 	
 	return 0;

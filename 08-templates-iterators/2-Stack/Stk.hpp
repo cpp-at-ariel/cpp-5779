@@ -150,11 +150,10 @@ public:
 	// generic constructor:
 	// template constructor inside a template class!
 	//-------------------------------------------------------------------
-	template<typename XX>
-	Stk(XX b, XX e): 
-		m_first(nullptr) {
-		for (; b!=e; ++b) {
-			push(*b);
+	template<typename IT>
+	Stk(IT begin, IT end): Stk() {
+		for (; begin!=end; ++begin) {
+			push(*begin);
 		}
 	}
 	//-------------------------------------------------------------------

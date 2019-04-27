@@ -1,3 +1,10 @@
+/**
+ * Function template example
+ * 
+ * @author Erel Segal-Halevi
+ * @since 2018-04
+ */
+
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -30,7 +37,7 @@ public:
 int main() {
 	cout << sum(5,6);
 	cout << sum(5.0,6.2);
-	cout << sum("abc","def");
+	// cout << sum("abc","def");
 	{
 		int a=4,b=5;
 		cout << a << " " << b << endl;
