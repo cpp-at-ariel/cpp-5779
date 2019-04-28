@@ -8,6 +8,7 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+using std::string;
 
 template<typename T>
 T sum (T a, T b) {
@@ -35,8 +36,8 @@ public:
 };
 
 int main() {
-	cout << sum(5,6);
-	cout << sum(5.0,6.2);
+	cout << sum(5,6) << endl;
+	cout << sum(5.0,6.2)  << endl;
 	// cout << sum("abc","def");
 	{
 		int a=4,b=5;
@@ -54,7 +55,13 @@ int main() {
 		cout << a << " " << b << endl;
 	}
 	{
+		double a=4.1; int b=5;
+		cout << a << " " << b << endl;
+		// swap(a,b);
+	}
+
+	{
 		DontCopyMe a, b;
-		//swap(a,b);     // compiler error
+		swap(a,b);     // compiler error
 	}
 }
