@@ -2,8 +2,6 @@
 #include <sstream>
 #include <fstream>
 #include <cassert>
-#include <thread>
-#include <chrono>
 
 using namespace std;
 
@@ -31,11 +29,6 @@ string to_string(const Complex& c) {
 }
 
 int main() {
-	cout << "The result is 2 " << endl;
-	cerr << "There is a bug " << endl;
-	// this_thread::sleep_for(chrono::seconds(3));
-	// return 0;
-
 	ostringstream sout;
 	Complex c{2,3};
 
