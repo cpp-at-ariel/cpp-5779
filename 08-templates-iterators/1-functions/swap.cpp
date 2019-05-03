@@ -38,7 +38,7 @@ public:
 int main() {
 	cout << sum(5,6) << endl;
 	cout << sum(5.0,6.2)  << endl;
-	// cout << sum("abc","def");
+	cout << sum(string("abc"),string("def"));
 	{
 		int a=4,b=5;
 		cout << a << " " << b << endl;
@@ -62,6 +62,6 @@ int main() {
 
 	{
 		DontCopyMe a, b;
-		swap(a,b);     // compiler error
+		//swap(a,b);     // compiler error
 	}
 }

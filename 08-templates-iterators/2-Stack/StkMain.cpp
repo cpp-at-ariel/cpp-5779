@@ -29,11 +29,13 @@ int main() {
 		++it
 		)
 	{
+		string val = *it;
 		cout << it->size() << " ";
 		cout << *it;
 	}
 	// C++-11 style
 	for (const string& val: strStk) {
+		cout << val.size() << " ";
 		cout << val;
 	}
 
@@ -43,6 +45,12 @@ int main() {
 	// Calling templated ctor, old C++ style
 	Stk<int> intStk(arr, arr+3);
 
+
+	//string sarr[]= {};
+	// Calling templated ctor, old C++ style
+	//Stk<int> intStkS(sarr, sarr+3);
+
+
 	// Calling templated ctor, C++-11 style
 	Stk<int> intStk2(begin(arr), end(arr));
 	for (const auto& val: intStk) {
@@ -50,7 +58,7 @@ int main() {
 	}
 	cout << endl;
 	for (const auto& val: intStk2) {
-		cout << typeid(val).name();
+		//cout << typeid(val).name();
 		cout << val << " ";
 	}
 	cout << endl;
@@ -60,9 +68,9 @@ int main() {
 	// Remark: C++-11 allows also to write classes that have {} constructors:
 	// Stk<int> intStk3{43, 21, -22};
 
-	cout << intStk2.top() << endl;
-	intStk2.top() = 100000;
-	cout << intStk2.top() << endl;
+	//cout << intStk2.top() << endl;
+	//intStk2.top() = 100000;
+	//cout << intStk2.top() << endl;
 	
 	return 0;
 }

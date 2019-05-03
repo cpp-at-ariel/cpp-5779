@@ -95,7 +95,7 @@ public:
 		}
 
 		T* operator->() const {
-			return &m_pointer->m_value;
+			return &(m_pointer->m_value);
 		}
 
 		// ++i;
