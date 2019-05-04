@@ -1,8 +1,8 @@
 /**
  * Specialization of a vector class to handle vector<bool> more efficiently.
  * 
- * Author: Peter Gottschling
- * Url: https://github.com/petergottschling/discovering_modern_cpp/blob/master/c%2B%2B11/derivative.cpp
+ * @author  Peter Gottschling
+ * @url     https://github.com/petergottschling/discovering_modern_cpp/blob/master/c%2B%2B11/derivative.cpp
  */
 
 #include <cassert>
@@ -132,7 +132,6 @@ class vector<bool>
     // NOTE: size() is not "inherited" from the generic vector!
     // You must define it, with all other methods,
     // in each specialization!
-
 };
 
 

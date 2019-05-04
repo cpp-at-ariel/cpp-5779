@@ -1,3 +1,8 @@
+/**
+ * Using template-class-specialization for safe division.
+ * Old example - I do not remember what it was used for.
+ */
+
 #include <cassert>
 #include <iostream>
 using namespace std;
