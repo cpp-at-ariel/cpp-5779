@@ -25,8 +25,15 @@ struct Picture {
 			pixels[i]=color;
 	}
 
-	void plotYAxis() {/* matala */}
+	void plotYAxis() {/* class exercise */}
 
+	void toFile(string filename) const {
+		ofstream imageFile(filename, ios::out | ios::binary);
+		imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
+  		imageFile.write(reinterpret_cast<char*>(pixels), 3*dimx*dimy);
+		imageFile.close();
+	}
+	
 	template<typename Function> 
 	void plot(
 		Function f, // Must have operator() (double)
@@ -44,10 +51,4 @@ struct Picture {
 		}
 	}
 
-	void toFile(string filename) const {
-		ofstream imageFile(filename, ios::out | ios::binary);
-		imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
-  		imageFile.write(reinterpret_cast<char*>(pixels), 3*dimx*dimy);
-		imageFile.close();
-	}
 };

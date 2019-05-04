@@ -45,15 +45,15 @@ mks<0,0,1> operator"" _hour(long double x) { return mks<0,0,1>(x*3600); }
 
 int main() {
 	//double time=5;   // seconds
-	//double distance = 7;  // meters
+	//double length = 7;  // meters
 	//
-	//cout << time+distance;   // logic error
+	//cout << time+length;   // logic error
 
 	Meters length = 15; // 15 meters
 	cout << "length = " << length << endl;
 	Seconds time   = 3;  // 3 seconds
 	cout << "time = " << time << endl;
-	//length+time;
+	//cout << time+length;   // compilation error
 
 	Seconds time1 = 1.0_hour + 2.0_min + 50.0_sec;
 	cout << "time1 = " << time1 << endl;

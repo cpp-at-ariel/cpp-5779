@@ -1,14 +1,14 @@
 /**
  * Template for numerically calculating the n-th derivative.
  * 
- * Author: Peter Gottschling
- * Url: https://github.com/petergottschling/discovering_modern_cpp/blob/master/c%2B%2B11/derivative.cpp
- * Shortened by: Erel Segal-Halevi
+ * @author Peter Gottschling
+ *         [Shortened by: Erel Segal-Halevi]
+ * 
+ * @url https://github.com/petergottschling/discovering_modern_cpp/blob/master/c%2B%2B11/derivative.cpp
  */
 
 #include <cmath>
 #include <iostream>
-#include <boost/mpl/bool.hpp>
 
 double SinCos(double x) {
     return sin(x) + cos(x);
@@ -71,6 +71,8 @@ auto derive(const Function& f, const  double& h) {
 
 
 #if 0
+#include <boost/mpl/bool.hpp>
+
 template <typename Function, unsigned N>
 class nth_derivative
 {
