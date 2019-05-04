@@ -57,8 +57,4 @@ int main() {
 	// cout << "size of array6 = " << array6.size << endl << endl;
 	// cout << array6 << endl;
 	// cout << "size of array6 = " << array6.size << endl << endl;
-
-	string a="xbc";
-	string b="def";
-	cout << std::boolalpha << (a<b) << endl;
 }

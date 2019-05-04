@@ -44,7 +44,7 @@ class vector
         check_index(i);
         return data[i];
     }
-		     
+
     T& operator[](int i) 
     {
         check_index(i);
