@@ -10,6 +10,10 @@ template <typename T1, typename T2> struct pair {
 	T2 second;
 };
 
+pair<int,char> func() {
+	return {2,'c'};
+}
+
 template <typename T1, typename T2> 
 ostream& operator<< (ostream& out, const pair<T1,T2>& thepair) {
 		out << thepair.first << "," << thepair.second;
@@ -18,6 +22,7 @@ ostream& operator<< (ostream& out, const pair<T1,T2>& thepair) {
 
 
 int main() {
-	pair<int,char> p1{2,'c'};
-	cout << p1 << endl;
+	pair<int,char> p1{1,'b'};
+	auto p2 = func();
+	cout << "p1=" << p1 << " p2=" << p2 << endl;
 }
