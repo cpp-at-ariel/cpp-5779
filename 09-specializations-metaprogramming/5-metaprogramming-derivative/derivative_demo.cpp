@@ -25,15 +25,15 @@ int main()
     // auto y = "abc";  // char* y
 
     auto baseFunction = 
-        //paramSinCos_o;
+        paramSinCos_o;
         //[](double x) {return x*x*x/3;};
-        _1 * _1 * _1 / 3 + 1;
+        // _1 * _1 * _1 / 3 + 1;
         //[](double x) {return std::abs(x);};
 
 	pic.plot(baseFunction, -7.0,7.0,1200,  -2.1,2.1, {0,0,255});
     pic.plot(derive(baseFunction,0.001), -7.0,7.0,1200,  -2.1,2.1, {0,128,0});
-    //pic.plot(derive(derive(baseFunction,0.001),0.001), -7.0,7.0,1200,  -2.1,2.1, {255,0,255});
-    pic.plot(make_nth_derivative<2>(baseFunction,0.001), -7.0,7.0,1200,  -2.1,2.1, {255,0,0});
+    pic.plot(derive(derive(baseFunction,0.001),0.001), -7.0,7.0,1200,  -2.1,2.1, {255,0,0});
+    // pic.plot(make_nth_derivative<2>(baseFunction,0.001), -7.0,7.0,1200,  -2.1,2.1, {255,0,0});
     pic.plot(make_nth_derivative<3>(baseFunction,0.001), -7.0,7.0,1200,  -2.1,2.1, {255,0,255});
 
 /*

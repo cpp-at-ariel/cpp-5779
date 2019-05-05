@@ -30,5 +30,5 @@ int main() {
     cout << is_numeric<int>::value << '\n';
     cout << add(5,6) << '\n';
 	cout << is_numeric<char>::value << '\n'; 
-    cout << add('a','b') << '\n';
+    // cout << add('a','b') << '\n';
 }

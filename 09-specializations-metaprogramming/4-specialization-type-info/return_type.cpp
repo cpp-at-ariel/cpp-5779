@@ -6,22 +6,33 @@
  */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 template <typename ArgumentType>
 struct ReturnType {
-  ArgumentType argument;
+  static ArgumentType returned_value;
 };
 
 template <> struct ReturnType<int> {
-  double argument;
+  static double returned_value;
 };
 
-template <class T> decltype(ReturnType<T>::argument) divide(T number) {
-	decltype(ReturnType<T>::argument) result = number/10.0;
+template <class T>
+decltype(ReturnType<T>::returned_value) divide(T number) {
+	decltype(ReturnType<T>::returned_value) result = number/10.0;
   return result;
 }
 
 int main() {
-	cout << divide(35) << endl;
+  cout << setprecision(100);
+	cout << divide(short{36}) << endl;
+	cout << divide(int{36}) << endl;
+	cout << divide(float{36}) << endl;
+	cout << divide(double{36}) << endl;
+
+  int a;
+  decltype(a) b;
+  // equivalent to:
+  // int b;
 }

@@ -26,7 +26,9 @@ void animate(Picture& pic, Function f_x_t,
 
 int main() {
 	Picture pic(300,300);
-	auto f_x_t = [](double x, double t){return std::sin(x*t);};
+	auto f_x_t = [](double x, double t){
+		return std::sin(x*t);
+	};
 	animate(pic, f_x_t, -4.0,4.0,1200,  -1.1,1.1, 0,1,100, {255,255,0}, {0,0,255});
 	return 0;
 }

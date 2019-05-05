@@ -5,7 +5,8 @@ using std::endl;
 using std::ostream;
 using std::string;
 
-template <typename T1, typename T2> struct pair {
+template <typename T1, typename T2> 
+struct pair {
 	T1 first;
 	T2 second;
 };
@@ -16,7 +17,7 @@ pair<int,char> func() {
 
 template <typename T1, typename T2> 
 ostream& operator<< (ostream& out, const pair<T1,T2>& thepair) {
-		out << thepair.first << "," << thepair.second;
+	out << thepair.first << "," << thepair.second;
 	return out;
 }
 

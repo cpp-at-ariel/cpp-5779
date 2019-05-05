@@ -43,7 +43,7 @@ double fin_diff(double f(double), double x, double h)
 #endif
 
 template <typename Function>
-inline  double fin_diff(Function f, const  double& x, const  double& h) {
+inline  double fin_diff(Function f, double x, double h) {
     return ( f(x+h) - f(x) ) / h;
 }
 
@@ -56,16 +56,16 @@ class derivative
   public:
     derivative(
         const Function& f, 
-        const  double& h): 
+        double h): 
         f(f), h(h) {}
 
-    double operator()(const  double& x) const {
+    double operator()(double x) const {
 	    return ( f(x+h) - f(x) ) / h;
     }
 };
 
 template<typename Function> 
-auto derive(const Function& f, const  double& h) {
+auto derive(const Function& f, double h) {
     return derivative<Function>(f,h);
 }
 
@@ -105,11 +105,11 @@ class nth_derivative
      prev_derivative fp;   // (N-1)-th derivative of f
         
   public:
-    nth_derivative(const Function& f, const  double& h): 
+    nth_derivative(const Function& f, double h): 
         h(h), 
         fp(f, h) {}      // Set fp to (N-1)-th derivative of f
 
-     double operator()(const  double& x) const {
+     double operator()(double x) const {
         return N & 1 ? 
             ( fp(x+h) - fp(x) ) / h 
                     : 

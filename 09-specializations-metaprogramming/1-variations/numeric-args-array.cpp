@@ -39,7 +39,7 @@ int main() {
 	cout << array5 << endl;
 	cout << "size of array5 = " << array5.size << endl << endl;
 
-	array<int,3,33> array3;     // a different class!
+	array<int,3,33> array3;  // a different class!
 	cout << array3 << endl;  // a different operator<<!
 	array3[0] = 99999;
 	cout << array3 << endl;
