@@ -24,6 +24,8 @@ decltype(ReturnType<T>::returned_value) divide(T number) {
   return result;
 }
 
+
+
 int main() {
   cout << setprecision(100);
 	cout << divide(short{36}) << endl;
