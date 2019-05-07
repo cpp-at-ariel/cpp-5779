@@ -9,9 +9,9 @@
 #include <iomanip>
 using namespace std;
 
-template <typename ArgumentType>
+template <typename T>
 struct ReturnType {
-  static ArgumentType returned_value;
+  static T returned_value;
 };
 
 template <> struct ReturnType<int> {
@@ -27,14 +27,24 @@ decltype(ReturnType<T>::returned_value) divide(T number) {
 
 
 int main() {
+  decltype(ReturnType<short>::returned_value) aa;
+  decltype(ReturnType<int>::returned_value) bb;
+  decltype(ReturnType<char*>::returned_value) cc;
+
   cout << setprecision(100);
 	cout << divide(short{36}) << endl;
 	cout << divide(int{36}) << endl;
 	cout << divide(float{36}) << endl;
 	cout << divide(double{36}) << endl;
+	// cout << divide("a") << endl;
 
   int a;
   decltype(a) b;
+
   // equivalent to:
   // int b;
+
+  auto c = a;
+  // equivalent to:
+  // decltype(a) c = a;
 }

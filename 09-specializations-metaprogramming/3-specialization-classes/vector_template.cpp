@@ -80,22 +80,23 @@ std::ostream& operator<<(std::ostream& os, const vector<T>& v)
  * Represents a reference to a single bit 
  *    inside a char.
  */
-class vector_bool_proxy
+class bool_reference
 {
   private:
     unsigned char& byte;
     unsigned char  mask;
     
   public:
-    vector_bool_proxy(unsigned char& byte, int p): 
-      byte(byte), 
-      mask(1 << p) {}
+    bool_reference(unsigned char& containing_byte, 
+      int bit_index): 
+      byte(containing_byte), 
+      mask(1 << bit_index) {}
 
     operator bool() const { 
       return byte & mask; 
     }
 
-    vector_bool_proxy& operator=(bool b) 
+    bool_reference& operator=(bool b) 
     { 
         if (b==true)
             byte |= mask;
@@ -125,7 +126,7 @@ class vector<bool>
       return (data[i/8] >> i%8) & 1; 
     }
 
-    vector_bool_proxy operator[](int i) 
+    bool_reference operator[](int i) 
     { return {data[i/8], i%8};   }
 
     int size() const { return my_size; }

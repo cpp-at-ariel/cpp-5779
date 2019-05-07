@@ -21,14 +21,19 @@ template<>    struct is_numeric<double>  {
 };
 
 template<typename T> T add(T a, T b) {
-    static_assert(is_numeric<T>::value, "Can only be numeric type");
+    static_assert(is_numeric<T>::value, 
+		"Can only be numeric type");
 	return a+b;
 }
+
+class A {
+	static const int i=5;
+};
 
 int main() {
 	cout << boolalpha;
     cout << is_numeric<int>::value << '\n';
     cout << add(5,6) << '\n';
 	cout << is_numeric<char>::value << '\n'; 
-    // cout << add('a','b') << '\n';
+    cout << add('a','b') << '\n';
 }
