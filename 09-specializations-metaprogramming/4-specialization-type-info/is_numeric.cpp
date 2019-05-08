@@ -6,7 +6,9 @@
  */
 
 #include <iostream>
+#include <cassert>
 using namespace std;
+
 
 template<typename T> struct is_numeric {
 	static const bool value = false;
@@ -21,8 +23,9 @@ template<>    struct is_numeric<double>  {
 };
 
 template<typename T> T add(T a, T b) {
-    static_assert(is_numeric<T>::value, 
-		"Can only be numeric type");
+    // static_assert(is_numeric<T>::value, 
+	// 	"Can only be numeric type");
+    assert(is_numeric<T>::value); 
 	return a+b;
 }
 
@@ -35,5 +38,7 @@ int main() {
     cout << is_numeric<int>::value << '\n';
     cout << add(5,6) << '\n';
 	cout << is_numeric<char>::value << '\n'; 
-    cout << add('a','b') << '\n';
+	float f;
+	add(f,f);
+    // cout << add('a','b') << '\n';
 }

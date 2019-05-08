@@ -49,9 +49,6 @@ public:
 	
 	explicit Buffer(size_t size) : _buf(getMemory(size)), _size(size) {}
 	
-	//---------------------------------------------------------
-	// Rule of three (in C++11 it will be rule of 5)
-	//---------------------------------------------------------
 	Buffer(const Buffer& other) :
 		_buf(new T[other.size()]),
 		_size(other.size())	{
@@ -117,8 +114,8 @@ public:
 	// efficiently swapping 
 	//---------------------------------------------------------
 	void efficient_swap(Buffer& other) {
-		::myswap(_buf, other._buf);
-		::myswap(_size, other._size);
+		myswap(_buf, other._buf);
+		myswap(_size, other._size);
 	} 
 	
 };

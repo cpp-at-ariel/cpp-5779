@@ -16,7 +16,8 @@ pair<int,char> func() {
 }
 
 template <typename T1, typename T2> 
-ostream& operator<< (ostream& out, const pair<T1,T2>& thepair) {
+ostream& operator<< (ostream& out, 
+const pair<T1,T2>& thepair) {
 	out << thepair.first << "," << thepair.second;
 	return out;
 }

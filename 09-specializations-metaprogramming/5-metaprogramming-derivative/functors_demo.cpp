@@ -39,6 +39,8 @@ int main() {
 		-4.0,4.0,5000,  -1.1,1.1, {255,0,0}) ;
 
 	auto f = [](double x){return std::abs(x/2);};
+	cout << f(2) << endl;
+	// double f(double x) {return std::abs(x/2);};
 	pic.plot(f, -4.0,4.0,5000,  -1.1,1.1, {128,0,0}) ;
 
 	pic.toFile("func.ppm");
