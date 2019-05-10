@@ -14,7 +14,8 @@ struct C {
 
 int main() {
 	const C obj1,obj2;
-	badkan::TestCase ("f")
+	badkan::TestCase testcase;
+	testcase.setname("My tests")
 	.CHECK_EQUAL(obj1.size(), 5)
 	.CHECK_EQUAL(obj1.size()+obj2.size(), 10)
 	.CHECK_EQUAL(f(1), 2)
@@ -29,6 +30,13 @@ int main() {
 	.CHECK_OUTPUT(g(4), "55")        // f test #12: There was an exception: hahaha
 	.CHECK_THROWS(g(4))
 	.CHECK_THROWS(f(4))              // f test #14: There should be an exception!
+
+	// The following statement illustrates a known bug - putting a char* as the second parameter of CHECK_EQUAL causes a compilation error:
+	//.CHECK_EQUAL("true","true")   
+	// If you want to compare something to a char*, use CHECK_OUTPUT:
+	.CHECK_OUTPUT("true","true")   
+	// .. or convert the second parameter to a string:
+	.CHECK_EQUAL("true",string("true"))
 	.print();
 	return 0;
 }
