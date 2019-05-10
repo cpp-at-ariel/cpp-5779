@@ -27,7 +27,7 @@ template <> struct DivideProperties<double,double> {
 }; 
 
 class divide_by_zero{};
-    
+
 template <typename TNom, typename TDen, typename TRes > 
 void SafeDiv(const TNom& nom, const TDen& den, TRes& res) {
 	// static_assert only in c++11 (supported in current compilers)
