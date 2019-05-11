@@ -1,4 +1,11 @@
-#include <cassert>
+/**
+ * Demonstrates how to access the internal types of template classes.
+ * 
+ * @author Erel Segal-Halevi
+ * @since 2018-05
+ */
+
+
 #include <iostream>
 #include <vector>
 using namespace std;
