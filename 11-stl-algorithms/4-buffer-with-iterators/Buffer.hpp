@@ -95,7 +95,7 @@ public:
 	//---------------------------------------------------------
 	// Iterators related (not safe - for safe we need inner classes instead of typedefs)
 	//---------------------------------------------------------
-	using iterator = T*; 
+	using iterator = T*;    // here using=typedef
 	using const_iterator = const T*;
 
 	iterator begin() {

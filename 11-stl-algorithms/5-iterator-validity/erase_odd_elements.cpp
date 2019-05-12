@@ -1,3 +1,13 @@
+/**
+ * Demonstrates the invalild-iterator bug,
+ * and how to solve it.
+ * 
+ * @author Erel Segal-Halevi
+ * @since 2018-05
+ * @url  https://stackoverflow.com/q/2874441/827927
+ */
+
+
 #include "output_containers.hpp"
 using namespace std;
 

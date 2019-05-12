@@ -9,6 +9,10 @@
 #include <set>
 using namespace std;
 
+// bool operator<(int a, int b) {
+// 	return a>b;
+// }
+
 /**
  * This is a comparator for ordering elements from large to small
  * (instead of the default which is from small to large).
@@ -17,6 +21,9 @@ struct SederYored {
 	bool operator()(int x, int y) {
 		return x>y;
 	}
+	// bool operator<(SederYored other) {
+	// 	return ???
+	// }
 };
 
 /**
@@ -34,12 +41,35 @@ struct ZugiIzugi {
 	}
 };
 
+
+struct UserDefinedOrder {
+	bool yored;
+	UserDefinedOrder(bool yored) { this->yored = yored; }
+	bool operator()(int x, int y) {
+		return yored? x>y: x<y;
+	}
+};
+
+
 int main() {
-	//set<int> s1;
+	// Demonstrate two kinds of comparison functors:
+	SederYored compare;
+	cout << boolalpha << compare(5,4) << endl;
+
+	auto seder_yored = [](int a, int b) {return a>b;};
+	cout << seder_yored(5,4)  << endl;
+
+	// Demonstrate using comparison functors in sets:
+	set<int> s1;
+	// cout << s1 << endl;    // long compiler error
 	//set<int, less<int> > s1;  // default
-	// set<int,SederYored> s1;
+	//set<int,SederYored> s1;
 	// set<int,greater<int>> s1;
-	set<int,ZugiIzugi> s1 {1,2,4,6};
+	// set<int,ZugiIzugi> s1 {1,2,4,6};
+	// set<int,decltype(seder_yored)> s1 (seder_yored);
+	// bool user_chose_seder_yored = true;
+	// set<int, UserDefinedOrder> s1 (user_chose_seder_yored);
+
 	s1.emplace(5);
 	s1.emplace(7);
 	s1.emplace(3);

@@ -35,4 +35,5 @@ int main() {
 	// v1.push_back(9);
 	cout << "emplace_back above capacity: " << endl;
 	v1.emplace_back(9);
+	cout << "size=" << v1.size() << " capacity=" << v1.capacity() << endl;
 }
