@@ -20,7 +20,7 @@ using namespace itertools;
 template<typename Iterable>
 string iterable_to_string(const Iterable& iterable) {
 	ostringstream ostr;
-	for (decltype(*iterable.begin()) i: iterable)
+	for (auto i: iterable)
 		ostr << i << ",";
 	return ostr.str();
 }
