@@ -12,5 +12,8 @@ test:  Test.o
 %.o: %.cpp range.hpp chain.hpp powerset.hpp product.hpp zip.hpp
 	clang++-5.0 -std=c++17 --compile $< -o $@
 
+version:
+	clang++-5.0 --version
+
 clean:
 	rm -f *.o demo test

@@ -34,6 +34,8 @@ desktop.ini
 *.exe
 *.out
 *.app
+demo
+test
 
 # Visual studio
 .vs*

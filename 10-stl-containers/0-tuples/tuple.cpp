@@ -36,7 +36,7 @@ auto f_automatic_both() {
 // 	return {5,'a',"hello"};
 // }
 
-auto f_automatic_bug() {
+    auto f_automatic_bug() {
 	return (5,'a',"hello");
 }
 
