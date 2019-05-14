@@ -21,28 +21,30 @@ auto f_automatic_returntype() {
 	return tuple<int,char,string>{5,'a',string("hello")};
 }
 
-// Implementation of make_tuple 
-//    (STL has a more general implementation)
-template<typename T1, typename T2, typename T3>
-auto make_tuple(T1 a1, T2 a2, T3 a3) {
-	return tuple<T1,T2,T3>{a1,a2,a3};
-}
-
 auto f_automatic_both() {
- 	return make_tuple(5,'a',"hello");
+	// since c++17:
+ 	return tuple(5,'a',"hello");
+
+	// until c++14:
+ 	//return make_tuple(5,'a',"hello");
 }
 
 // auto f_automatic_none() {
 // 	return {5,'a',"hello"};
 // }
 
-    auto f_automatic_bug() {
-	return (5,'a',"hello");
+auto f_automatic_bug() {
+	return (5,'a',"bug!");
 }
 
+ostream& operator<< (ostream& out, basic_string<int> s) {
+	for (int i: s)
+		out << i;
+	return out;
+}
 
 int main() {
-	auto f = f_full;
+	auto f = f_automatic_both; // f is a pointer to function
 	auto [ii,cc,ss] = f();
 	// Equivalent to:
 
@@ -51,8 +53,7 @@ int main() {
 	// auto cc = std::get<1>(tt);
 	// auto ss = std::get<2>(tt);
 
-
 	cout << ii << " " << cc << " " << ss << endl;
 
-	// cout << h() << endl;
+	cout << f_automatic_bug() << endl;
 }

@@ -110,10 +110,8 @@ class nth_derivative
         fp(f, h) {}      // Set fp to (N-1)-th derivative of f
 
      double operator()(double x) const {
-        return N & 1 ? 
-            ( fp(x+h) - fp(x) ) / h 
-                    : 
-            ( fp(x) - fp(x-h) ) / h;
+        return 
+            ( fp(x+h) - fp(x) ) / h ;
     }
 };
 
