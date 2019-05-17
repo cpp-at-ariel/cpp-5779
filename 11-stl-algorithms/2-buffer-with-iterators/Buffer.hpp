@@ -1,6 +1,7 @@
 /**
- * A template buffer with iterator
- *   and const_iterator.
+ * A template buffer with:
+ *  * iterator,
+ *  * const_iterator.
  * 
  * AUTHOR: Ofir Pele, 2017.
  * 
