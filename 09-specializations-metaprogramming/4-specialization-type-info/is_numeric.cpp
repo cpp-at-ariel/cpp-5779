@@ -23,9 +23,9 @@ template<>    struct is_numeric<double>  {
 };
 
 template<typename T> T add(T a, T b) {
-    // static_assert(is_numeric<T>::value, 
-	// 	"Can only be numeric type");
-    assert(is_numeric<T>::value); 
+    static_assert(is_numeric<T>::value, 
+	 	"Can only be numeric type");
+	// assert(is_numeric<T>::value); 
 	return a+b;
 }
 

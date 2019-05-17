@@ -14,7 +14,12 @@ using namespace std;
 int main() {
   int a;
   decltype(a) aa;
+
   int& b=a;
   decltype(b) bb=aa;
   decltype(b)& cc=aa;
+
+  auto c = a;
+  // equivalent to:
+  // decltype(a) c = a;
 }

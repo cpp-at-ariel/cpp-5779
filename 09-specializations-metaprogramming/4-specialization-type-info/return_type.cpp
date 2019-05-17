@@ -27,16 +27,6 @@ decltype(ReturnType<T>::returned_value) divide(T number) {
 
 
 int main() {
-  int a;
-  decltype(a) b;
-  
-  // equivalent to:
-  // int b;
-
-  auto c = a;
-  // equivalent to:
-  // decltype(a) c = a;
-
   decltype(ReturnType<short>::returned_value) aa;
   decltype(ReturnType<int>::returned_value) bb;
   decltype(ReturnType<char*>::returned_value) cc;

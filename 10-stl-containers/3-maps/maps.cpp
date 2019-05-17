@@ -15,4 +15,9 @@ int main() {
 	m1["abc"] = 300;
 	cout << "m1[abc]=" << m1["abc"] << endl;
 	cout << "m1[def]=" << m1["def"] << endl;
+
+	for(auto [key,val] : m1) {
+		cout << key << ':' << val << endl;
+	}
+
 }
