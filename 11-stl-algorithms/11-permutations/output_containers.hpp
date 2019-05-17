@@ -15,6 +15,14 @@ ostream& operator<< (ostream& out, const vector<T>& c) {
 	return out;
 }
 
+
+template<typename T, unsigned long N>
+ostream& operator<< (ostream& out, const array<T,N>& c) {
+	for (int i: c)
+		out << i << ' ';
+	return out;
+}
+
 template<typename T>
 ostream& operator<< (ostream& out, const set<T>& c) {
 	for (int i: c)
