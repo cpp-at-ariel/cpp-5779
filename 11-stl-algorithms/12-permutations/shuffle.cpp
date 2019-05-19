@@ -17,13 +17,13 @@ using namespace std;
 
 
 int main() {
-	vector<int> v{0,1,2,3,4,5,6,7,8,9};       // OK
+	vector<int> v{0,1,2,3,4,5,6,7,8,9};   
 	cout << "start: " << v << endl;
 
-	shuffle(begin(v), end(v), default_random_engine(1));
+	shuffle(begin(v), end(v), default_random_engine{1});
 	cout << "shuffled(1): " << v << endl;
 
-	shuffle(begin(v), end(v), default_random_engine(2));
+	shuffle(begin(v), end(v), default_random_engine{2});
 	cout << "shuffled(2): " << v << endl;
 }
 
