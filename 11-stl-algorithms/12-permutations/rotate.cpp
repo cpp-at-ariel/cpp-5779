@@ -1,5 +1,5 @@
 /**
- * Demonstrates STL sort algorithms.
+ * Demonstrates STL rotate algorithms.
  * 
  * @author Erel Segal-Halevi
  * @since 2019-05
@@ -16,10 +16,10 @@ using namespace std;
 
 
 int main() {
-	array<int,10> v{9,8,6,7,4,5,2,0,3,1};
-	cout << "unsorted: " << v << endl;
+	vector<int> v{9,8,6,7,4,5,2,0,3,1};       // OK
+	cout << "start: " << v << endl;
 
-	sort(begin(v), end(v));
-	cout << "sorted: " << v << endl;
+	rotate(begin(v), begin(v)+3, end(v));
+	cout << "rotated(3): " << v << endl;
 }
 

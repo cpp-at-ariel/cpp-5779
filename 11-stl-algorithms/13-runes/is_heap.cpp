@@ -1,5 +1,5 @@
 /**
- * Demonstrates STL heap algorithms.
+ * Demonstrates STL is_heap algorithm.
  * 
  * @author Erel Segal-Halevi
  * @since 2019-05
@@ -29,31 +29,15 @@ template<typename T> ostream& operator<<(ostream& out, const vector<T>& v) {
 
 
 int main() {
-	cout << "A heap:" << endl;
-	vector<int> v{9,8,6,7,4,5,2,0,3,1};
-	cout << v << endl;
-
+	cout << boolalpha;
 	cout << "Not a heap:" << endl;
 	vector<int> v1{1,2,3,4,5,6,7,8,9};
 	cout << v1 << endl;
+	cout << is_heap(begin(v1), end(v1)) << endl;
 
 	cout << "make_heap: " << endl;
-	make_heap(v1.begin(), v1.end());
+	make_heap(begin(v1), end(v1));
 	cout << v1 << endl;
-
-	v1.push_back(10);
-	cout << "After push_back - not a heap:" << v1 << endl;
-	push_heap(v1.begin(), v1.end());
-	cout << "push_heap: " << v1 << endl;
-
-
-	pop_heap(v1.begin(), v1.end());
-	cout << "pop_heap: " << v1 << endl;
-	cout << "popped maximum element: " << v1.back() << endl;
-	v1.pop_back();
-	cout << "After pop_back: " << v1 << endl;
-
-	sort_heap(v1.begin(), v1.end());
-	cout << "sort_heap: " << v1 << endl;
+	cout << is_heap(begin(v1), end(v1)) << endl;
 }
 

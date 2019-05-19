@@ -1,6 +1,6 @@
 /**
  * Shapley value
- * Demonstrates the "next_permutation" algorithm.
+ * Demonstrates "next_permutation" and "iota".
  */
 
 #include "output_containers.hpp"

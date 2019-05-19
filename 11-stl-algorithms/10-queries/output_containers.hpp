@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 #include <set>
 #include <vector>
 #include <list>
@@ -7,41 +8,37 @@
 #include <map>
 using namespace std;
 
+template<typename IT> string tostring(IT begin, IT end) {
+	ostringstream ostr;
+	for (; begin!=end; ++begin)
+		ostr << (*begin) << " ";
+	return ostr.str();
+}
 
 template<typename T>
 ostream& operator<< (ostream& out, const vector<T>& c) {
-	for (int i: c)
-		out << i << ' ';
-	return out;
+	return out << tostring(begin(c), end(c));
 }
 
 
 template<typename T, unsigned long N>
 ostream& operator<< (ostream& out, const array<T,N>& c) {
-	for (int i: c)
-		out << i << ' ';
-	return out;
+	return out << tostring(begin(c), end(c));
 }
 
 template<typename T>
 ostream& operator<< (ostream& out, const set<T>& c) {
-	for (int i: c)
-		out << i << ' ';
-	return out;
+	return out << tostring(begin(c), end(c));
 }
 
 template<typename T>
 ostream& operator<< (ostream& out, const list<T>& c) {
-	for (int i: c)
-		out << i << ' ';
-	return out;
+	return out << tostring(begin(c), end(c));
 }
 
 template<typename T>
 ostream& operator<< (ostream& out, const deque<T>& c) {
-	for (int i: c)
-		out << i << ' ';
-	return out;
+	return out << tostring(begin(c), end(c));
 }
 
 template<typename K, typename V>
