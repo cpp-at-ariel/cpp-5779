@@ -43,5 +43,11 @@ int main() {
 
 	middle = stable_partition(begin(v2), end(v2), [](Person x){return x.age%2==0;});
 	cout << "stable_partition to even age vs. odd age: " << v2 << endl;
+
+	sort(begin(v1), end(v1), [](Person p1, Person p2) {return p1.age<p2.age;}); // sort by increasing age
+	cout << ".      sort by age: " << v1 << endl;
+
+	stable_sort(begin(v2), end(v2), [](Person p1, Person p2) {return p1.age<p2.age;}); // sort by increasing age
+	cout << "stable_sort by age: " << v2 << endl;
 }
 

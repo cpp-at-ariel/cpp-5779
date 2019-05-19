@@ -18,7 +18,7 @@ using namespace std;
 
 int main() {
 	cout << boolalpha;
-	vector<int> v{4,6,8,5,2,0,1,1,9,7,5,2,0};       
+	vector<int> v{4,2,8,5,2,0,1,1,9,7,5,2,0};       
 	cout << "unsorted: " << v << endl;
 
 	auto find8 = find(begin(v), end(v), 8);
@@ -50,6 +50,11 @@ int main() {
 	auto maxelement = max_element(begin(v), end(v));
 	cout << "max_element(): index=" << (maxelement-begin(v)) << ", value=" << (*maxelement) << endl;
 	auto [min1,max1] = minmax_element(begin(v), end(v));
+	// // equivalent to:
+	// auto minmaxpair = minmax_element(begin(v), end(v));
+	// auto min1 = minmaxpair.first;
+	// auto max1 = minmaxpair.second;
+
 	cout << "min index=" << (min1-begin(v)) << ", value=" << (*min1) << endl;
 	cout << "max index=" << (max1-begin(v)) << ", value=" << (*max1) << endl;
 
@@ -57,6 +62,10 @@ int main() {
 	cout << "\nsorted: " << v << endl;
 	auto [first1,last1] = equal_range(begin(v), end(v), 1);
 	cout << "equal_range(1): " << first1-begin(v) << "," << last1-begin(v) << endl;
+	auto [first2,last2] = equal_range(begin(v), end(v), 2);
+	cout << "equal_range(2): " << first2-begin(v) << "," << last2-begin(v) << endl;
+	auto [first3,last3] = equal_range(begin(v), end(v), 3);
+	cout << "equal_range(3): " << first3-begin(v) << "," << last3-begin(v) << endl;
 	cout << "binary_search(8): " << binary_search(begin(v), end(v), 8) << endl;
 }
 

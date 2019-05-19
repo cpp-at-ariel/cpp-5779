@@ -11,19 +11,8 @@
 #include <set>
 #include <vector>
 #include <numeric>
+#include "output_containers.hpp"
 using namespace std;
-
-template<typename T> ostream& operator<<(ostream& out, const set<T>& container) {
-	copy(container.begin(), container.end(), 
-		ostream_iterator<T>(out,"; "));
-	return out;
-}
-
-template<typename T> ostream& operator<<(ostream& out, const vector<T>& container) {
-	copy(container.begin(), container.end(), 
-		ostream_iterator<T>(out,"; "));
-	return out;
-}
 
 int main() {
 	// example of insert iterator:

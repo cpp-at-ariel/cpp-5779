@@ -16,7 +16,7 @@ using namespace std;
 
 
 int main() {
-	vector<int> v{9,8,6,7,4,5,2,0,3,1};       // OK
+	vector<int> v{9,8,6,7,4,5,2,0,3,1};    
 	cout << "original vector: " << v << endl;
 
 	auto middle = partition(begin(v), end(v), [](int x){return x%2==0;});
@@ -24,9 +24,14 @@ int main() {
 
 	cout << "even elements: " << tostring(begin(v), middle) << endl;
 	cout << "odd elements: " << tostring(middle, end(v)) << endl;
+	sort(begin(v),middle);
+	sort(middle  ,end(v));
+	cout << "sorted even elements: " << tostring(begin(v), middle) << endl;
+	cout << "sorted odd elements: " << tostring(middle, end(v)) << endl;
 
 	auto middle2 = partition_point(begin(v), end(v), [](int x){return x%2==0;});
-	cout << "\neven elements: " << tostring(begin(v), middle) << endl;
-	cout << "odd elements: " << tostring(middle, end(v)) << endl;
+	cout << "\neven elements: " << tostring(begin(v), middle2) << endl;
+	cout << "odd elements: " << tostring(middle2, end(v)) << endl;
+	cout << "all elements: " << tostring(begin(v), end(v)) << endl;
 }
 
