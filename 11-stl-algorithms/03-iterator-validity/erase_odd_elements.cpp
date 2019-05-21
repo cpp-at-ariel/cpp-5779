@@ -37,15 +37,15 @@ int main() {
 	{
 		cout << "erase with a bug" << endl;
 		vector<int> v {1,2,4,7,11,16,22};
-		cout << v << endl;
+		cout << "before: " << v << endl;
 		erase_odd_elements(v, v.begin(), v.end());
-		cout << v << endl;
+		cout << "after: " << v << endl;
 	}
 	{
 		cout << "erase correctly" << endl;
 		vector<int> v {1,2,4,7,11,16,22};
-		cout << v << endl;
+		cout << "before: " << v << endl;
 		erase_odd_elements_2(v, v.begin(), v.end());
-		cout << v << endl;
+		cout << "after: " << v << endl;
 	}
 }

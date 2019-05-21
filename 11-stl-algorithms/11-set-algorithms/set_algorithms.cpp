@@ -16,9 +16,10 @@ using namespace std;
 
 
 int main() {
-	vector<int> v1{0,1,2,3,4,5,6,7,8,9};
+	vector<int> v1{0,1,1,2,3,4,4,5,6,7,8,9};
 	set<int> v2{2,4,6,8,10,12,14,16,18};
-	vector<int> vdifference1, vdifference2, vdifference, vintersect, vunion;
+	vector<int> vunion;
+	vector<int> vdifference1, vdifference2, vdifference, vintersect;
 	cout << "v1: " << v1 << endl;
 	cout << "v2: " << v2 << endl;
 	set_union(begin(v1), end(v1), begin(v2), end(v2), back_inserter(vunion));
@@ -33,6 +34,7 @@ int main() {
 	cout << "v2 X v1: " << vdifference << endl;
 
 	vector<int> v3{6,8,10};
+	cout << boolalpha << includes(begin(v1), end(v1), begin(v3), end(v3)) << endl;
 	cout << boolalpha << includes(begin(v2), end(v2), begin(v3), end(v3)) << endl;
 }
 

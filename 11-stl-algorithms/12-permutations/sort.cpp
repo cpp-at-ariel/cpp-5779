@@ -24,6 +24,7 @@ int main() {
 	cout << "unsorted: " << v << endl;
 
 	sort(begin(v), end(v));
+	// sort(begin(v), begin(v)+5);
 	cout << "sorted: " << v << endl;
 
 	sort(begin(v), end(v), [](int a, int b){return a>b;});
@@ -34,9 +35,14 @@ int main() {
 	cout << "\nnth_element (5): " << v << endl;  // v[5] is in its correct place;
 	                                             // v[0..5] are the smallest 6 elements.
 
-	partial_sort(begin(v), begin(v)+3, end(v));
-	cout << "partial_sort (3): " << v << endl;  // v[0..2] are in their correct place
-
+	partial_sort(begin(v), begin(v)+5, end(v));
+	// partial_sort(begin(v), end(v)-5, end(v));
+	// partial_sort(end(v)-5, end(v), end(v));
+	cout << "partial_sort (5): " << v << endl;  // v[0..4] are in their correct place
+	partial_sort(begin(v), begin(v)+5, end(v), greater<int>{});
+	cout << "partial_sort (5, greater<int>): " << v << endl;  // v[0..4] are in their correct place
+	reverse(begin(v), end(v));
+	cout << "reverse (v): " << v << endl;
 
 	array<int,10> a{11,13,15,17,19, 12,14,16,18,20};
 	cout << "\nTwo sorted halves: " << a << endl;

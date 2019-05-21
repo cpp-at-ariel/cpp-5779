@@ -14,17 +14,27 @@ int main() {
 		{"abc", 2},
 		{"def", 4},
 		{"xyz", 6},
-		{"abc", 3},
-		{"def", 5},
-		{"xyz", 7},
+		{"abc", 22},
+		{"def", 44},
+		{"xyz", 66},
 	};
+	// m["abc"]=222;
+
+	for (auto [k,v]: m)
+		cout << k << "," << v << endl;
+	cout << endl;
 
 	auto iter = m.find("abc");
-	cout << iter->first << "," << iter->second << endl;
+	cout <<  "find: " << iter->first << "," << iter->second << endl;
 
-	iter = m.lower_bound("abc");
-	cout << iter->first << "," << iter->second << endl;
+	auto begin_abc = m.lower_bound("abc");
+	cout << "lower_bound: " << begin_abc->first << "," << begin_abc->second << endl;
 
-	iter = m.upper_bound("abc");
-	cout << iter->first << "," << iter->second << endl;
+	auto end_abc = m.upper_bound("abc");
+	cout << "upper_bound: " << end_abc->first << "," << end_abc->second << endl;
+	
+
+	cout << endl << "all abc in multimap: " << endl;
+	for (auto i=begin_abc; i!=end_abc; ++i) 
+		cout << i->first << "," << i->second << endl;
 }

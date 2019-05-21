@@ -14,4 +14,6 @@ int main()
     cout << "five random letters out of " << in << " : " << out << '\n';
     sample(in.begin(), in.end(), begin(out), 5, default_random_engine(7));
     cout << "five random letters out of " << in << " : " << out << '\n';
+
+    sample(in.begin(), in.end(), ostream_iterator<char>(cout), 5, default_random_engine(9));
 }

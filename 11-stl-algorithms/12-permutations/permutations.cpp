@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-	vector<int> v {1,2,3,4};
+	string v {"abcd"};
 	cout << "Permutations in increasing order:" << endl;
 	do {
 		cout << v << endl;

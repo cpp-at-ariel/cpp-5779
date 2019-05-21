@@ -18,8 +18,8 @@ using namespace std;
 
 int main() {
 	cout << boolalpha;
-	vector<int> v1{0,1,2,3,4,5,6,7,8,9};
-	list<int> v2{0,1,2,8,4,5,6,7,3,9};
+	vector<int> v1{10,11,12,13,14,15,16,17,18,19};
+	list<int>   v2{10,11,12,18,14,15,16,17,13,19};
 	cout << "equal(v1,v2)): " << equal(begin(v1),end(v1),begin(v2),end(v2)) << endl;
 	cout << "is_permutation(v1,v2)): " << is_permutation(begin(v1),end(v1),begin(v2),end(v2)) << endl;
 	cout << "lexicographical_compare(v1,v2)): " << lexicographical_compare(begin(v1),end(v1),begin(v2),end(v2)) << endl;

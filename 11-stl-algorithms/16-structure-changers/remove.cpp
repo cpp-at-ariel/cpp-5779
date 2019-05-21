@@ -33,7 +33,10 @@ int main() {
 	v.erase(remove_if(begin(v), end(v), [](int a){return a%2==0;}), v.end());
 	cout << "v after removing and erasing even numbers: " << v << endl << endl; 
 	v3.clear();
-	remove_copy_if(begin(v2), end(v2),  back_inserter(v3), [](int a){return a%2==0;});
+	remove_copy_if(
+		begin(v2), end(v2),  
+		back_inserter(v3), 
+		[](int a){return a%2==0;});
 	cout << "v2 after remove_copy_if: " << v2 << endl;
 	cout << "v3 after remove_copy_if: " << v3 << endl<<endl;
 }

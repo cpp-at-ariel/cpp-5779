@@ -13,12 +13,16 @@ int main()
 {
     // transform with one sequence:
     string s("hello");
-    transform(s.begin(), s.end(), s.begin(),
-                   [](unsigned char c) -> unsigned char { return toupper(c); });
+    transform(
+            s.begin(), s.end(), 
+            s.begin(),
+            [](unsigned char c)  { return toupper(c); });
  
     vector<int> ordinals;
-    transform(s.begin(), s.end(), back_inserter(ordinals),
-                   [](unsigned char c) -> int { return c; });
+    transform(
+        s.begin(), s.end(), 
+        back_inserter(ordinals),
+        [](unsigned char c)  { return c; });
  
     cout << s << ':';
     for (auto ord : ordinals) 

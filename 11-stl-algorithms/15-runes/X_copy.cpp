@@ -20,7 +20,9 @@ int main() {
 	cout << "original vector: " << v << endl;
 	vector<int> even, odd;
 
-	partition_copy(begin(v), end(v), back_inserter(even), back_inserter(odd), [](int x){return x%2==0;});
+	partition_copy(begin(v), end(v), 
+		back_inserter(even), back_inserter(odd), 
+		[](int x){return x%2==0;});
 	cout << "partition_copy to even vs. odd: " << even << "   " << odd << endl;
 
 	vector<int> vr;

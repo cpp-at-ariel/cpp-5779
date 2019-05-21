@@ -16,15 +16,18 @@ using namespace std;
 
 int main() {
 	// example of insert iterator:
-	vector<int> v;
-	auto viter = back_inserter(v);
-	*viter = 2;
-	*viter = 5;
-	*viter = 3;
+	vector<int> v(2);
+	// v.reserve(3);
+	// auto viter = v.begin(); 
+	auto viter = back_insert_iterator(v);
+	*viter = 2; viter++;
+	*viter = 5; viter++;
+	*viter = 3; viter++;
 	cout << "v: " << v << endl;
 
 	set<int> s;
-	auto siter = inserter(s, s.begin());
+	auto siter = insert_iterator(s, s.begin());
+	*siter = 0;
 	*siter = 2;
 	*siter = 5;
 	*siter = 3;
@@ -37,9 +40,11 @@ int main() {
 	cout << "v1: " << v1 << endl;
 	set<int> s1;
 	copy(v1.begin(), v1.end(), insert_iterator(s1, s1.begin()));
+	// copy(v1.begin(), v1.end(), s1.begin()); // compile error 
 	cout << "s1: " << s1 << endl;
-	v1.clear();
-	copy(s1.begin(), s1.end(), back_insert_iterator(v1));
-	cout << "v1: " << v1 << endl;
+	vector<int> v2;
+	copy(s1.begin(), s1.end(), back_insert_iterator(v2));
+	// copy(s1.begin(), s1.end(), v2.begin());  
+	cout << "v2: " << v2 << endl;
 }
 

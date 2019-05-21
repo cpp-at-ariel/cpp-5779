@@ -17,6 +17,8 @@ int main() {
 	m["def"] = 4;
 	m["ghi"] = 6;
 
+	// map<string,int> m1 {[](const string& a, const string& b){return a>b;}};
+
 	// Old version:
 	for (map<string, int>::iterator iter = m.begin(); iter!=m.end(); ++iter) 
 		cout << iter->first << "," << iter->second << endl;	

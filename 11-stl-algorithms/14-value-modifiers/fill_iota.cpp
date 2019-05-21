@@ -29,5 +29,7 @@ int main() {
 	cout << "fill(b): " << vc << endl;
 	iota(begin(vc), end(vc), 'b');
 	cout << "iota(b): " << vc << endl;
+
+	// iota(ostream_iterator<int>(cout), ostream_iterator<int>{}, 52);
 }
 

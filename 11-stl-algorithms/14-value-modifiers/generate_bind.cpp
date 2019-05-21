@@ -34,7 +34,7 @@ int main() {
 	// Demonstrates the bind function:
 	auto powers_of_three = bind(powers_of_k, 3);
 	// cout << powers_of_three();
-	//generate(v1.begin(), v1.end(), powers_of_k); // compile error
+	// generate(v1.begin(), v1.end(), powers_of_k); // compile error
 	generate(v1.begin(), v1.end(), powers_of_three);
 	cout << v1 << endl  << endl;
 
