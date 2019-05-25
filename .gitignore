@@ -39,3 +39,6 @@ test
 
 # Visual studio
 .vs*
+
+# python
+__pycache__
