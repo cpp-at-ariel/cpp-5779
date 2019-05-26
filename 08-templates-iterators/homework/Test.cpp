@@ -217,11 +217,11 @@ int main() {
 
 	testcase.setname("YE - multy powerset");
 
-	int sum = 0;
-	for (auto i : powerset(range(1,5)))
-		for (auto j : i)
-			sum += j;
-	testcase.CHECK_EQUAL(sum,80);
+	// int sum = 0;
+	// for (auto i : powerset(range(1,5)))
+	// 	for (auto j : i)
+	// 		sum += j;
+	// testcase.CHECK_EQUAL(sum,80);
 	
 	//this test is not compiled yet	
 	testcase.CHECK_EQUAL(iterable_to_string(powerset(product(range(2,4), range(10,12)))),
@@ -235,13 +235,18 @@ int main() {
 
 //		Constant Range,Chain,Zip,Product,Powerset
 
-		range a11{1, 1};	range a044{0, 44};range Saz{'a', 'z'};range Saa{'a', 'a'};range Smq{'m' , 'q'};
+		auto a11 = range(1,1);	auto a044 = range(0, 44);
+		auto Saz = range('a', 'z'); auto Saa = range('a', 'a');
+		auto Smq = range('m', 'q');
+		auto CR14R03 = chain(range(1, 4), range(0, 3)); 
+		auto CRACRDG = chain(range('a','c'), range('d', 'g'));
+		auto CACSTEST = chain(range('a','c'), string("test"));
 		
-		chain CR14R03{range{1, 4}, range{0, 3}}; chain CRACRDG{range{'a', 'c'}, range{'d', 'g'}};chain CACSTEST{range{'a', 'c'}, string{"test"}};
-		
-		zip ZCR14RAD{range{1, 4}, range{'a', 'd'}}; 	zip ZCACSAB{range{'a', 'c'}, string{"ab"}};
+		auto ZCR14RAD = zip(range(1, 4), range('a', 'd')); 	
+		auto ZCACSAB = zip(range('a', 'c'), string{"ab"});
 
-		product PR14RAD{range{1, 4}, range{'a', 'd'}}; product PCACSAB{range{'a', 'c'}, string{"hello"}};
+		auto PR14RAD= product (range(1, 4), range('a', 'd')); 
+		auto PCACSAB =product(range('a', 'c'), string{"hello"});
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////// TEST RANGE 	/////////////////////////////////
@@ -726,6 +731,6 @@ for (auto pair: powerset(range(1,2))){
 		testcase.print_signal(signal);
 		grade = 0;
 	}
-	cout << "Your grade is: "  << grade << endl;
+  cout <<  grade << " " << "sdlghljwhtycdxfhb" << endl;
 	return 0;
 }
