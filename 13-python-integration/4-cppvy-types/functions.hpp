@@ -13,8 +13,21 @@ int sum(const vector<int>& v) {
     return accumulate(begin(v), end(v), 0);
 }
 
+int sum(const vector<vector<int>>& mat) {
+    cout << "sum matrix" << endl;
+    int result=0;
+    for (auto v: mat)
+        result += accumulate(begin(v), end(v), 0);
+    return result;
+}
+
 int sum(const set<int>& v) {
     cout << "sum set" << endl;
+    return accumulate(begin(v), end(v), 0);
+}
+
+int sumset(const set<int>& v) {
+    cout << "sumset" << endl;
     return accumulate(begin(v), end(v), 0);
 }
 
@@ -24,6 +37,11 @@ int sum(const unordered_set<int>& v) {
 }
 
 int sum(const map<int,int>& v) {
-    cout << "sum unordered_set" << endl;
+    cout << "sum map" << endl;
+    return 56;
+}
+
+int summap(const map<int,int>& v) {
+    cout << "summap" << endl;
     return 56;
 }
