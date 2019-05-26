@@ -18,6 +18,16 @@ class IntList {
             theInts(new int[newNumInts]) 
             {  }
 
+        // conversion constructor
+        IntList(const string& other): 
+            numInts(2), 
+            theInts(new int[2]) 
+            {  
+                cout << "converting string to IntList" << endl;
+
+            }
+
+
         IntList(const IntList& other): 
         // IntList(IntList other): 
             IntList(other.numInts) 
@@ -119,5 +129,9 @@ int main() {
 
     cout << "---" << endl;
     IntList list4 = list2 = list1;
+
+    list4 = string("abc");
+    IntList list5 = string("def");
+    cout << "list4[5] = " << list4[5] << endl;
     return 0;
 }

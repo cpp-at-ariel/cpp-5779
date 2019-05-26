@@ -3,10 +3,13 @@
  * Compile with --assemble.
  */
 
+#define sqr(x) x*x
+
 inline int square(int x) {
     return x*x;
 }
 
 int main() {
-    return square(1234);
+    int r=sqr(5+5);
+    return square(5+5);
 }

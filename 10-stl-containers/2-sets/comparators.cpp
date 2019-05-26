@@ -57,15 +57,15 @@ int main() {
 	cout << seder_yored(5,4)  << endl;
 
 	// Demonstrate using comparison functors in sets:
-	set<int> s1;
+	// set<int> s1;
 	// cout << s1 << endl;    // long compiler error
-	// set<int,SederYored> s1;
+	set<int,SederYored> s1;
 	// set<int,decltype(seder_yored)> s1 (seder_yored);
 	// set<int, less<int> > s1;  // default
-	// set<int,greater<>> s1;
+	// set<int, greater<> > s1;
 	// set<int,ZugiIzugi> s1 {1,2,4,6};
 	bool user_chose_seder_yored = true;
-	set<int, UserDefinedOrder> s1 (user_chose_seder_yored);
+	// set<int, UserDefinedOrder> s1 (user_chose_seder_yored);
 
 	s1.emplace(5);
 	s1.emplace(7);
