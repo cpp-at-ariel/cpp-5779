@@ -18,7 +18,7 @@ for N in range(5,12):
 	print ("Permutations of 1..{}:".format(N), flush=True)
 	start = time.clock()
 	if use_cpp:
-		count = cppyy.gbl.count_permutations(N)
+		count = cppy	y.gbl.count_permutations(N)
 	else:
 		count = count_permutations.count_permutations(N) 
 	end = time.clock()

@@ -7,3 +7,4 @@ def count_permutations(N:int)->int:
 	for p in itertools.permutations(range(1,N+1)):
 		count += 1
 	return count
+
