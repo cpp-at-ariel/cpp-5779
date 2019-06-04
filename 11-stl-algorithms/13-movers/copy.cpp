@@ -23,6 +23,8 @@ int main() {
 	copy(begin(v), end(v), back_inserter(v2));
 	cout << "v: " << v << endl;
 	cout << "v2: " << v2 << endl << endl;
+	//v2.insert(begin(v2), begin(v), end(v));
+	//cout << "v2: " << v2 << endl << endl;
 
 	copy(begin(v)+4, end(v), begin(v)+1);
 	cout << "v after copy [4,end) to begin+1: " << v << endl;

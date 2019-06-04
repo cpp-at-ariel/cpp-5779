@@ -28,11 +28,13 @@ int main()
  
     for_each(nums.begin(), nums.end(), [](int &n){ n++; });
  
+    cout << "after: ";
+    for_each(nums.begin(), nums.end(), print);
+
     // calls Sum::operator() for each number
     Sum s = for_each(nums.begin(), nums.end(), Sum());
  
-    cout << "after: ";
-    for_each(nums.begin(), nums.end(), print);
+
     cout << '\n';
     cout << "sum: " << s.sum << '\n';
 }

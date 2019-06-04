@@ -9,6 +9,7 @@
 #include <iterator>
 #include <algorithm>
 #include <vector>
+#include <array>
 using namespace std;
 
 
@@ -21,6 +22,13 @@ template<typename T> void print_vector_as_tree_recursive(ostream& out, const vec
 }
 
 template<typename T> ostream& operator<<(ostream& out, const vector<T>& v) {
+	copy(v.begin(), v.end(), ostream_iterator<T>(out," "));
+	print_vector_as_tree_recursive(out, v, 0, "");
+	cout << endl;
+	return out;
+}
+
+template<typename T, size_t N> ostream& operator<<(ostream& out, const array<T,N>& v) {
 	copy(v.begin(), v.end(), ostream_iterator<T>(out," "));
 	print_vector_as_tree_recursive(out, v, 0, "");
 	cout << endl;

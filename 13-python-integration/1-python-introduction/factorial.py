@@ -1,6 +1,6 @@
 #!python3
 
-def factorial(n:int)->int:
+def factorial(n):
 	"""
 	Return n! - the factorial of n.
 
@@ -13,7 +13,7 @@ def factorial(n:int)->int:
 	
 	"""	
 	if n<=0:
-		return 1
+		return 0
 	elif n==1:
 		return 1
 	else:
@@ -24,3 +24,8 @@ if __name__ == "__main__":
     import doctest
     (failures,tests) = doctest.testmod(report=True)
     print ("{} failures, {} tests".format(failures,tests))
+	
+    x=5
+    y=7
+    x,y = y,x
+    print("x={} y={}".format(x,y))

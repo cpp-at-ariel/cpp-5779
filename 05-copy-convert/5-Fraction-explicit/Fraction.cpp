@@ -21,7 +21,7 @@ public:
 
 	// Add "explicit" in one of the lines below to allow compilation of last line.
 	// See	https://stackoverflow.com/a/49092822/827927
-	 Fraction(int nn): Fraction(nn, 1) { }
+	Fraction(int nn): Fraction(nn, 1) { }
 	explicit operator double() const {
 		cout << "converting Fraction to double" << endl;
 		return double(nom) / double(den);

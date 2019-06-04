@@ -13,6 +13,9 @@
 #include "output_containers.hpp"
 using namespace std;
 
+bool is_divisible_by_5(int x) {
+	return x%5==0;
+}
 
 
 int main() {
@@ -21,9 +24,16 @@ int main() {
 
 	auto middle = partition(begin(v), end(v), [](int x){return x%2==0;});
 	cout << "partition to even vs. odd: " << v << endl;
-
 	cout << "even elements: " << tostring(begin(v), middle) << endl;
 	cout << "odd elements: " << tostring(middle, end(v)) << endl;
+
+	//middle = partition(begin(v), end(v), is_divisible_by_5);
+	// equivalent to:
+	//auto middle = partition(begin(v), end(v), [](int x){ return is_divisible_by_5(x); });
+	//cout << "partition by 5: " << v << endl;
+	//cout << "divisible by 5: " << tostring(begin(v), middle) << endl;
+	//cout << "indivisible by 5: " << tostring(middle, end(v)) << endl;
+
 	sort(begin(v),middle);
 	sort(middle  ,end(v));
 	cout << "sorted even elements: " << tostring(begin(v), middle) << endl;

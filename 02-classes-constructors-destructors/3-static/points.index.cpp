@@ -48,7 +48,7 @@ class Point {
     }
 };
 
-int Point::nextPointIndex = 9999;
+int Point::nextPointIndex = 0;
 
 
 int main() {
