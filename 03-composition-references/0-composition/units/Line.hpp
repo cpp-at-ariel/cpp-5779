@@ -21,6 +21,8 @@ class Line
 				
 			}
 		Line(int x1,int y1,int x2,int y2);
+
+		Line(Point new_p1): p1(new_p1) {}
 		
 		void set(int,int,int,int);
 		void set(Point,Point);

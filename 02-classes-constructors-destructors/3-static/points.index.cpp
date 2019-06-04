@@ -17,6 +17,7 @@ class Point {
   public:
 
     Point() {
+        //nextPointIndex=0; // logic error
         this->index = nextPointIndex;
         nextPointIndex++;
     }
@@ -42,14 +43,16 @@ class Point {
     }
 
     static void showMax() {
+        //x is equivalent to this->x;
         cout << MAXX << "," << MAXY << endl;
     }
 };
 
-int Point::nextPointIndex = 0;
+int Point::nextPointIndex = 9999;
 
 
 int main() {
+    //Point::to_string();
     Point p1;
     cout << "p1 = " << p1.to_string() << endl;
 

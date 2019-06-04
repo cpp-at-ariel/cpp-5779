@@ -1,3 +1,10 @@
+/**
+ * Demonstrates how to insert a range of items into a container.
+ * @author Erel Segal-Halevi
+ * @since 2018-05
+ */
+
+
 #include "output_containers.hpp"
 using namespace std;
 
