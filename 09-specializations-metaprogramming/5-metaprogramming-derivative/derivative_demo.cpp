@@ -30,6 +30,10 @@ int main()
         // _1 * _1 * _1 / 3 + 1;
         //[](double x) {return std::abs(x);};
 
+    auto derivativeOfBase = derive(baseFunction, 0.001);
+        // represents the function x^2
+
+
 	pic.plot(baseFunction, -7.0,7.0,1200,  -2.1,2.1, {0,0,255});
     pic.plot(derive(baseFunction,0.001), -7.0,7.0,1200,  -2.1,2.1, {0,128,0});
     // pic.plot(derive(derive(baseFunction,0.001),0.001), -7.0,7.0,1200,  -2.1,2.1, {255,0,0});

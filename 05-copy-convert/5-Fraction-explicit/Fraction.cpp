@@ -6,8 +6,8 @@
  * @since 2018
  */
 
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 

@@ -7,7 +7,15 @@
 #include <iostream>
 using namespace std;
 
+void test(const int& x) {
+    
+}
+
 int main() {
+    test(1);
+    // under the hood:
+    // const int& x = 1;
+
     int* p1;
     //int& r1; // compile error
 

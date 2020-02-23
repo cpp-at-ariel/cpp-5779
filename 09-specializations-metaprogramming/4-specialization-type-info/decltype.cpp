@@ -14,6 +14,7 @@ using namespace std;
 int main() {
   int a;
   decltype(a) aa;
+  // auto aa; // compilation error
 
   int& b=a;
   decltype(b) bb=aa;

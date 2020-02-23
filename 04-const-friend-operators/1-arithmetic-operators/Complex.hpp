@@ -124,12 +124,17 @@ public:
     }
     
 
-    /* Works, but unexpected - don't do it 
+    /* Works, but unexpected - don't do it */
     ostream& operator<< (ostream& os) const {
         os << "(" << _re << "+" << _im << "i)";
         return os;
     }
-    */
+    
+    // ostream& operator<< (ostream& os, const Complex& c) const {
+    //     os << "(" << _re << "+" << _im << "i)";
+    //     return os;
+    // }
+    
 
     //-------------------------------------
     // friend global binary operators
@@ -138,6 +143,9 @@ public:
     friend const Complex operator* (const Complex& c1, const Complex& c2);
     friend bool operator==(const Complex& c1, const Complex& c2);
     friend bool operator!=(const Complex& c1, const Complex& c2);
+
+    friend bool operator^(const Complex& c1, const Complex& c2);
+
     
     //----------------------------------
     // friend global IO operators

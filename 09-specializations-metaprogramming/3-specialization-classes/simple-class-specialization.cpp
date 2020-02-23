@@ -13,7 +13,8 @@ public:
 	Test()   {     cout << "General template object \n";  }  
 }; 
 
-template <> class Test <int> {   
+template <> 
+class Test <int> {   
 public:
 	Test()    {     cout << "Specialized template object \n";    }  
 }; 

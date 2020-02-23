@@ -20,7 +20,12 @@ int main(int argc, char **argv) {
     cout << (((a += b) += b)  += b) << endl;
     cout << a << endl;
 
+
     Complex c1(1,2), c2(3), c3;
+    c1 << cout;
+
+    cout << boolalpha << (c1 ^ c2) << endl;
+    cout << boolalpha << (c1 ^ Complex{1,2}) << endl;
     // const Complex c4(6,7);
     // cout << -c4 << endl;
     cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;    

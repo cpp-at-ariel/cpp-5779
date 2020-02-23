@@ -10,12 +10,23 @@ struct Derived1: public Base1 {
 	char c='a';
 	void print() { cout << i << " " << c << endl; }
 };
+struct Derived1d: public Base1 {
+	char c='d';
+	void print() { cout << i << " " << c << endl; }
+};
+
 struct Base2 {
 	double i=222;
 	virtual void print() { cout << i << endl; }
 };
 struct Derived2: public Base2 {
 	char c='b';
+	int a[100000];
+	Derived2() { a[50000] = 50000; }
+	void print() { cout << i << " " << c << endl; }
+};
+struct Derived2c: public Base2 {
+	char c='c';
 	void print() { cout << i << " " << c << endl; }
 };
 
@@ -44,13 +55,17 @@ int main()
 		Base2* bp2;
 		Derived2* dp2;
 
-		bp1 = dynamic_cast<Base1*>(new Derived1);    // OK, like static_cast
+		// bp1 = dynamic_cast<Base1*>(new Derived1);    // OK, like static_cast
+		bp1 = new Derived1;    // OK, like static_cast
+		Base1* bp1b = new Derived1d;
+
 		cout << "bp1 = " << bp1 << endl;
 		bp1->print();
 		//dp1 = dynamic_cast<Derived1*>(new Base1);    // compile error: 'Base1' is not polymorphic
 		//cout << "dp1 = " << dp1 << endl;
 		//dp1->print();
-		bp2 = dynamic_cast<Base2*>(new Derived2);    // OK, like static_cast
+
+		bp2 = new Derived2;    
 		cout << "bp2 = " << bp2 << endl;
 		bp2->print();
 		dp2 = dynamic_cast<Derived2*>(new Base2);    // OK, returns null
@@ -64,15 +79,20 @@ int main()
 
 		// How to implement instanceof in C++?
 		Base2* bp2a = new Derived2;
-		Base2* bp2b = new Base2;
+		Base2* bp2c = new Derived2c;
 
 		if (Derived2* dp2a = dynamic_cast<Derived2*>(bp2a)) {
-			cout << "bp2a points to a Derived2! c=" << dp2a->c << endl;
+			cout << "bp2a points to a Derived2! a[50000]=" << dp2a->a[50000] << endl;
 		} else {
 			cout << "bp2a does NOT point to a Derived2! " << endl;
 		}
-		if (Derived2* dp2b = dynamic_cast<Derived2*>(bp2b)) {
-			cout << "bp2b points to a Derived2! c=" << dp2b->c << endl;
+		if (Derived2* dp2b = dynamic_cast<Derived2*>(bp2c)) {
+			cout << "bp2b points to a Derived2! a[50000]=" << dp2b->a[50000] << endl;
+		} else {
+			cout << "bp2b does NOT point to a Derived2! " << endl;
+		}
+		if (Derived2* dp2b = (Derived2*)(bp2c)) {
+			cout << "bp2b points to a Derived2! a[50000]=" << dp2b->a[50000] << endl;
 		} else {
 			cout << "bp2b does NOT point to a Derived2! " << endl;
 		}
@@ -81,11 +101,11 @@ int main()
 		Base1* bp1a = new Derived1;
 		Base1* bp1b = new Base1;
 
-		if (Derived1* dp1a = dynamic_cast<Derived1*>(bp1a)) {
-			cout << "bp1a points to a Derived1! " << endl;
-		} else {
-			cout << "bp1a does NOT point to a Derived1! " << endl;
-		}
+		// if (Derived1* dp1a = dynamic_cast<Derived1*>(bp1a)) {
+		// 	cout << "bp1a points to a Derived1! " << endl;
+		// } else {
+		// 	cout << "bp1a does NOT point to a Derived1! " << endl;
+		// }
 	}
 
 	{
